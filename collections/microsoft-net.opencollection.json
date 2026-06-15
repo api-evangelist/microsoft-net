@@ -1,0 +1,220 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NuGet Server API (V3)",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ServiceIndex",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get service index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/index.json"
+          },
+          "docs": "Returns the V3 service index describing the resources available on this package source (search, registration, package base address, publish, etc.)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/query",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search terms used to filter packages."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prerelease",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "semVerLevel",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "packageType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Query the SearchQueryService resource for packages matching a search string. The base URL of the search service should normally be discovered from the service index; this path reflects the nuget.org search resource."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Registration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get registration index for a package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/registration5-semver1/:id/index.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lowercased package ID."
+              }
+            ]
+          },
+          "docs": "Returns the registration index for a package ID, listing all available versions and metadata. Package ID must be lowercased."
+        },
+        {
+          "info": {
+            "name": "Get registration leaf for a specific package version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/registration5-semver1/:id/:version.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get registration leaf for a specific package version"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "PackageContent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List package versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/flatcontainer/:id/index.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PackageBaseAddress resource — returns the list of all available versions for the specified package."
+        },
+        {
+          "info": {
+            "name": "Download a package (.nupkg)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/flatcontainer/:id/:version/:id_lower.:version_lower.nupkg",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id_lower",
+                "value": "",
+                "type": "path",
+                "description": "Lowercased package ID."
+              },
+              {
+                "name": "version_lower",
+                "value": "",
+                "type": "path",
+                "description": "Lowercased version."
+              }
+            ]
+          },
+          "docs": "Download a package (.nupkg)"
+        },
+        {
+          "info": {
+            "name": "Download a package manifest (.nuspec)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/flatcontainer/:id/:version/:id_lower.nuspec",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id_lower",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download a package manifest (.nuspec)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

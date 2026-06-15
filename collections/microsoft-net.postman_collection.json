@@ -1,0 +1,986 @@
+{
+  "item": [
+    {
+      "id": "d478ddfe-dc59-4ecb-a042-4bdedad9fe30",
+      "name": "ServiceIndex",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1433542-df88-4e7e-aced-d8cbfb669d37",
+          "name": "Get service index",
+          "request": {
+            "name": "Get service index",
+            "description": {
+              "content": "Returns the V3 service index describing the resources available on this package source (search, registration, package base address, publish, etc.).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "index.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37584546-d9d2-4c8a-b6df-01e18b32d249",
+              "name": "Service index document",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "index.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"3.0.0\",\n  \"resources\": [\n    {\n      \"@id\": \"http://kfsu.bdkIJbm3,vZkOXeS+jk,v\",\n      \"@type\": \"string\",\n      \"comment\": \"string\"\n    },\n    {\n      \"@id\": \"https://JioHKZXbfPuxHfhrFSBlnf.whRmzrH,iOBKAkZXcXW.DNQVMh\",\n      \"@type\": \"string\",\n      \"comment\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "830c3a4e-1963-47cf-a2bc-e7c2868dfd44",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3b255f68-f53e-4758-a3ce-0edff696b491",
+          "name": "Search packages",
+          "request": {
+            "name": "Search packages",
+            "description": {
+              "content": "Query the SearchQueryService resource for packages matching a search string. The base URL of the search service should normally be discovered from the service index; this path reflects the nuget.org search resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Search terms used to filter packages."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "prerelease",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "semVerLevel",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "packageType",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1fe7e37-78b8-48c3-8b60-0eb7b9637bdb",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "take",
+                      "value": "20"
+                    },
+                    {
+                      "key": "prerelease",
+                      "value": "false"
+                    },
+                    {
+                      "key": "semVerLevel",
+                      "value": "2.0.0"
+                    },
+                    {
+                      "key": "packageType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalHits\": 7711,\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"version\": \"string\",\n      \"description\": \"string\",\n      \"authors\": \"string\",\n      \"iconUrl\": \"http://NQbbxqEUwT.phAHetllwglJEcm5a9W8to-.WULuQz.qPXmnPoeSv\",\n      \"licenseUrl\": \"http://YveBxeviIFSCRRiLqbmSZukXIQdzD.dswcE7j-OSyZNJZaSnIgAuYxQUW4rMuyFH5jZkZpbfa-SynbPYHL8NSiw\",\n      \"projectUrl\": \"https://AzKBfGnXOYnEMswJD.qdxoVjXf1YP5zepwqeKJT.8GuqcvBYgmiCFMp-YnYKqyWvhNfrPG\",\n      \"registration\": \"https://rhHcvsczYsuGwOW.uhzgzjl5Qr\",\n      \"summary\": \"string\",\n      \"tags\": \"string\",\n      \"title\": \"string\",\n      \"totalDownloads\": 6202,\n      \"verified\": true,\n      \"versions\": [\n        {\n          \"@id\": \"http://QBptBXEzjYrQY.hnqChaFXoCVGMNTCU7uYHpoGlVaYS2aHysErJMGDQod+B\",\n          \"version\": \"string\",\n          \"downloads\": 1897\n        },\n        {\n          \"@id\": \"http://BqlYUPdonAlCi.yeyDui98iy\",\n          \"version\": \"string\",\n          \"downloads\": 7986\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"version\": \"string\",\n      \"description\": \"string\",\n      \"authors\": \"string\",\n      \"iconUrl\": \"https://obgSUJdnPm.nbkib,m2gHW\",\n      \"licenseUrl\": \"https://e.ihF8L9-JV+2rbOZC-3Yk8ldzYAJ,+.y1pvZDw\",\n      \"projectUrl\": \"http://JmswwQrdlJCLPHhxhwyTJA.igCsmJlnztRBAb52KVZQQzGtov7drdi\",\n      \"registration\": \"http://RSxPUNWUZprdhAiPsKwpzvnaAVtl.ckkurGvKNqAYnXMQl07Z31cG+G-i\",\n      \"summary\": \"string\",\n      \"tags\": \"string\",\n      \"title\": \"string\",\n      \"totalDownloads\": 861,\n      \"verified\": true,\n      \"versions\": [\n        {\n          \"@id\": \"http://TdLUEmsNJfdbZsJvVgmvoK.rqhipQ+FoIm\",\n          \"version\": \"string\",\n          \"downloads\": 6034\n        },\n        {\n          \"@id\": \"https://ZPJ.kxdAQJZ6lXTr\",\n          \"version\": \"string\",\n          \"downloads\": 5589\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "74fe3d1f-fc1f-4240-b016-0875f9c8207f",
+      "name": "Registration",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "581dc32f-24c0-4ae3-9af9-261a01e1fd06",
+          "name": "Get registration index for a package",
+          "request": {
+            "name": "Get registration index for a package",
+            "description": {
+              "content": "Returns the registration index for a package ID, listing all available versions and metadata. Package ID must be lowercased.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "registration5-semver1",
+                ":id",
+                "index.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lowercased package ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80dbd5fb-0b7f-4335-8cfa-a7179e8a2e3c",
+              "name": "Registration index",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "registration5-semver1",
+                    ":id",
+                    "index.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lowercased package ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76d6f86d-b344-4b37-af50-d46c5447aec5",
+              "name": "Package not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "registration5-semver1",
+                    ":id",
+                    "index.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lowercased package ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "109e3320-9551-465f-84ce-ffc44fe71285",
+          "name": "Get registration leaf for a specific package version",
+          "request": {
+            "name": "Get registration leaf for a specific package version",
+            "description": {},
+            "url": {
+              "path": [
+                "registration5-semver1",
+                ":id",
+                "{{version}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6a84c58-a309-4be5-975a-342e612a4aee",
+              "name": "Registration leaf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "registration5-semver1",
+                    ":id",
+                    "{{version}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdb5ca6c-abba-4abe-9808-50021b85e7d9",
+              "name": "Version not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "registration5-semver1",
+                    ":id",
+                    "{{version}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3444f506-e662-4e2a-a0c7-ba753c35732d",
+      "name": "PackageContent",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "90e591ee-16a6-439f-9573-2ca27cd85a2b",
+          "name": "List package versions",
+          "request": {
+            "name": "List package versions",
+            "description": {
+              "content": "PackageBaseAddress resource — returns the list of all available versions for the specified package.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "flatcontainer",
+                ":id",
+                "index.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75f82214-1f4c-4a4f-980a-e6d0b3671761",
+              "name": "Versions document",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "flatcontainer",
+                    ":id",
+                    "index.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"versions\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f5343da-8afb-4f74-aa1f-d477be18af1a",
+              "name": "Package not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "flatcontainer",
+                    ":id",
+                    "index.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5133784-030f-4eaf-a5d0-edd53ab35b20",
+          "name": "Download a package (.nupkg)",
+          "request": {
+            "name": "Download a package (.nupkg)",
+            "description": {},
+            "url": {
+              "path": [
+                "flatcontainer",
+                ":id",
+                ":version",
+                "{{id_lower}}.{{version_lower}}.nupkg"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc735af3-61f6-4311-9543-db6070f653fb",
+              "name": "NuGet package content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "flatcontainer",
+                    ":id",
+                    ":version",
+                    "{{id_lower}}.{{version_lower}}.nupkg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ad97b3f9-a7d8-45f0-a8df-0ea09f3c8560",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "flatcontainer",
+                    ":id",
+                    ":version",
+                    "{{id_lower}}.{{version_lower}}.nupkg"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a9489c6-d068-4491-95a9-72ebe973fcfd",
+          "name": "Download a package manifest (.nuspec)",
+          "request": {
+            "name": "Download a package manifest (.nuspec)",
+            "description": {},
+            "url": {
+              "path": [
+                "flatcontainer",
+                ":id",
+                ":version",
+                "{{id_lower}}.nuspec"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59b2f86a-d1f1-4a07-882a-13592e8f9fd3",
+              "name": "Package nuspec XML",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "flatcontainer",
+                    ":id",
+                    ":version",
+                    "{{id_lower}}.nuspec"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "e98fc72a-09ff-4286-9793-4e04d8a08826",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "flatcontainer",
+                    ":id",
+                    ":version",
+                    "{{id_lower}}.nuspec"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5596d19f-8e46-4797-bde2-6f9a771da06e",
+      "name": "Publish",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nuget.org/v3",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Lowercased package ID.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "id_lower"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Lowercased version.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "version_lower"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "version"
+    }
+  ],
+  "info": {
+    "_postman_id": "f8d24818-48c9-4859-a05c-ad33b67635de",
+    "name": "NuGet Server API (V3)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The NuGet Server API is the set of HTTP endpoints used by the .NET CLI, NuGet client, Visual Studio, and other tooling to discover, download, publish, and unlist NuGet packages from nuget.org and compatible package sources. Entry point is the service index at /v3/index.json. Endpoints documented here cover discovery (service index), search, registration (package metadata), package base address (content), and publish.",
+      "type": "text/plain"
+    }
+  }
+}

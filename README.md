@@ -1,13 +1,22 @@
 # Microsoft .NET (microsoft-net)
+
 Microsoft .NET is a free, cross-platform, open source developer platform for building many different types of applications. The .NET APIs and developer tools provide programmatic access to .NET runtime services, NuGet package management, project templates, and build tooling across web, mobile, desktop, games, IoT, cloud, and microservices workloads.
 
-**URL:** [https://raw.githubusercontent.com/api-evangelist/microsoft-net/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/microsoft-net/refs/heads/main/apis.yml)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/microsoft-net/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/microsoft-net/refs/heads/main/apis.yml)
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Scope
 
-## Tags:
+- **Type:** Index
 
- - .NET, C#, Cloud, Cross-Platform, Developer Tools, Microsoft, Open Source
+## Tags
+
+- .NET
+- C#
+- Cloud
+- Cross-Platform
+- Developer Tools
+- Microsoft
+- Open Source
 
 ## Timestamps
 
@@ -17,63 +26,133 @@ Microsoft .NET is a free, cross-platform, open source developer platform for bui
 ## APIs
 
 ### Microsoft .NET API Browser
-Comprehensive reference for .NET APIs across all packages, namespaces, and types in the .NET ecosystem.
 
-**Human URL:** [https://learn.microsoft.com/en-us/dotnet/api/](https://learn.microsoft.com/en-us/dotnet/api/)
+Comprehensive reference for .NET APIs across all packages, namespaces, and types in the .NET ecosystem including .NET 9, .NET Standard, and .NET Framework.
+
+- **Human URL:** [https://learn.microsoft.com/en-us/dotnet/api/](https://learn.microsoft.com/en-us/dotnet/api/)
+- **Base URL:** `https://learn.microsoft.com/en-us/dotnet/api/`
+
+#### Tags
+
+- API Browser
+- Class Library
+- Reference
+
+#### Properties
+
+- [Documentation](https://learn.microsoft.com/en-us/dotnet/api/)
+- [API Reference](https://learn.microsoft.com/en-us/dotnet/api/)
+- [Postman Collection](collections/microsoft-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/microsoft-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### NuGet Server API
-RESTful API for interacting with nuget.org and private NuGet feeds, supporting package search, download, push, delete, and metadata queries.
 
-**Human URL:** [https://learn.microsoft.com/en-us/nuget/api/overview](https://learn.microsoft.com/en-us/nuget/api/overview)
+RESTful API for interacting with nuget.org and private NuGet feeds, supporting package search, download, push, delete, and metadata queries for .NET package management.
+
+- **Human URL:** [https://learn.microsoft.com/en-us/nuget/api/overview](https://learn.microsoft.com/en-us/nuget/api/overview)
+- **Base URL:** `https://api.nuget.org/v3/`
+
+#### Tags
+
+- NuGet
+- Package Management
+- Package Registry
+- REST
+
+#### Properties
+
+- [Documentation](https://learn.microsoft.com/en-us/nuget/api/overview)
+- [API Reference](https://learn.microsoft.com/en-us/nuget/api/overview)
+- [Getting Started](https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio)
+- [Postman Collection](collections/microsoft-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/microsoft-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### .NET CLI
-Cross-platform command-line interface for developing, building, running, and publishing .NET applications.
 
-**Human URL:** [https://learn.microsoft.com/en-us/dotnet/core/tools/](https://learn.microsoft.com/en-us/dotnet/core/tools/)
+Cross-platform command-line interface for developing, building, running, and publishing .NET applications. Provides commands for project creation, package management, testing, and deployment.
+
+- **Human URL:** [https://learn.microsoft.com/en-us/dotnet/core/tools/](https://learn.microsoft.com/en-us/dotnet/core/tools/)
+- **Base URL:** `https://learn.microsoft.com/en-us/dotnet/core/tools/`
+
+#### Tags
+
+- Build
+- CLI
+- Developer Tools
+- Tooling
+
+#### Properties
+
+- [Documentation](https://learn.microsoft.com/en-us/dotnet/core/tools/)
+- [Getting Started](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet)
+- [Postman Collection](collections/microsoft-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/microsoft-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### ASP.NET Core Web API
-Framework for building HTTP-based RESTful APIs and web services with ASP.NET Core.
 
-**Human URL:** [https://learn.microsoft.com/en-us/aspnet/core/web-api/](https://learn.microsoft.com/en-us/aspnet/core/web-api/)
+Framework for building HTTP-based RESTful APIs and web services with ASP.NET Core, including controllers, minimal APIs, routing, model binding, authentication, and OpenAPI integration.
+
+- **Human URL:** [https://learn.microsoft.com/en-us/aspnet/core/web-api/](https://learn.microsoft.com/en-us/aspnet/core/web-api/)
+- **Base URL:** `https://learn.microsoft.com/en-us/aspnet/core/`
+
+#### Tags
+
+- ASP.NET Core
+- REST
+- Web API
+- Web Framework
+
+#### Properties
+
+- [Documentation](https://learn.microsoft.com/en-us/aspnet/core/web-api/)
+- [Tutorials](https://learn.microsoft.com/en-us/aspnet/core/tutorials/)
+- [Getting Started](https://learn.microsoft.com/en-us/aspnet/core/getting-started)
+- [Postman Collection](collections/microsoft-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/microsoft-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### .NET Aspire
-Cloud-ready stack for building observable, production-ready distributed applications in .NET.
 
-**Human URL:** [https://learn.microsoft.com/en-us/dotnet/aspire/](https://learn.microsoft.com/en-us/dotnet/aspire/)
+Cloud-ready stack for building observable, production-ready distributed applications in .NET with built-in service discovery, health checks, telemetry, and configuration management.
 
-## Features
+- **Human URL:** [https://learn.microsoft.com/en-us/dotnet/aspire/](https://learn.microsoft.com/en-us/dotnet/aspire/)
+- **Base URL:** `https://learn.microsoft.com/en-us/dotnet/aspire/`
 
-| Name | Description |
-|------|-------------|
-| Cross-Platform Development | Build and run .NET applications on Windows, macOS, and Linux with full platform support. |
-| High Performance Runtime | .NET runtime with JIT compilation, garbage collection, and ahead-of-time compilation for optimal performance. |
-| NuGet Package Ecosystem | Access over 350,000 packages through the NuGet package manager for rapid development. |
-| Minimal APIs | Build lightweight HTTP APIs with minimal code using the minimal API pattern in ASP.NET Core. |
-| Cloud Native Support | Built-in support for containers, Kubernetes, microservices, and cloud deployment through .NET Aspire. |
-| Hot Reload | Apply code changes to running applications without restarting for faster development cycles. |
+#### Tags
 
-## Use Cases
+- Cloud Native
+- Distributed Systems
+- Microservices
+- Observability
 
-| Name | Description |
-|------|-------------|
-| Enterprise Web Applications | Build scalable enterprise web applications using ASP.NET Core with authentication, authorization, and data access. |
-| Microservices Architecture | Design and deploy microservices using .NET with gRPC, message queues, and service discovery. |
-| Cloud-Native Applications | Develop cloud-native applications with .NET Aspire, containers, and Azure integration. |
-| RESTful API Development | Create production-ready REST APIs with OpenAPI documentation, versioning, and rate limiting. |
-| Desktop Applications | Build Windows desktop applications using WPF, WinForms, or .NET MAUI for cross-platform desktop. |
+#### Properties
 
-## Integrations
+- [Documentation](https://learn.microsoft.com/en-us/dotnet/aspire/)
+- [Getting Started](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app)
+- [Postman Collection](collections/microsoft-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/microsoft-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
-| Name | Description |
-|------|-------------|
-| Azure | Deep integration with Microsoft Azure cloud services including App Service, Functions, and Container Apps. |
-| Visual Studio | Full IDE support with IntelliSense, debugging, profiling, and project templates in Visual Studio. |
-| VS Code | Lightweight development with the C# Dev Kit extension for Visual Studio Code. |
-| GitHub Actions | CI/CD pipeline integration with GitHub Actions for .NET build, test, and deploy workflows. |
-| Docker | Container support with official .NET Docker images and multi-stage build templates. |
-| Entity Framework Core | Object-relational mapping for database access with support for SQL Server, PostgreSQL, SQLite, and more. |
+## Common Properties
+
+- [Portal](https://dotnet.microsoft.com/)
+- [Documentation](https://learn.microsoft.com/en-us/dotnet/)
+- [Getting Started](https://dotnet.microsoft.com/learn)
+- [Blog](https://devblogs.microsoft.com/dotnet/)
+- [GitHub Organization](https://github.com/dotnet)
+- [Support](https://dotnet.microsoft.com/platform/support)
+- [Terms of Service](https://www.microsoft.com/en-us/servicesagreement/)
+- [Privacy Policy](https://privacy.microsoft.com/en-us/privacystatement)
+- [YouTube](https://www.youtube.com/dotnet)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/.net)
+- [X (Twitter)](https://twitter.com/dotnet)
+- [Changelog](https://github.com/dotnet/core/blob/main/release-notes/README.md)
+- [SDK](https://dotnet.microsoft.com/download)
+- [Training](https://learn.microsoft.com/en-us/training/dotnet/)
+- [Features](undefined)
+- [Use Cases](undefined)
+- [Integrations](undefined)
 
 ## Maintainers
 
 **FN:** Kin Lane
 **Email:** kin@apievangelist.com
+**URL:** https://apievangelist.com
