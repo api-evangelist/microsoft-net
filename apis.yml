@@ -7,7 +7,7 @@ description: >-
   templates, and build tooling across web, mobile, desktop, games, IoT, cloud, and
   microservices workloads.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: >-
   https://raw.githubusercontent.com/api-evangelist/microsoft-net/refs/heads/main/apis.yml
 created: '2024-01-01'
