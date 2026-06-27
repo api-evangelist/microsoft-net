@@ -139,7 +139,7 @@ common:
     url: https://twitter.com/dotnet
   - type: ChangeLog
     url: https://github.com/dotnet/core/blob/main/release-notes/README.md
-  - type: SDK
+  - type: SDKs
     url: https://dotnet.microsoft.com/download
   - type: Training
     url: https://learn.microsoft.com/en-us/training/dotnet/
