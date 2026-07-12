@@ -115,6 +115,12 @@ apis:
       - type: GettingStarted
         url: https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app
 common:
+  - type: VulnerabilityDisclosure
+    url: security/microsoft-net-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/microsoft-net-domain-security.yml
+  - type: Authentication
+    url: authentication/microsoft-net-authentication.yml
   - type: Portal
     url: https://dotnet.microsoft.com/
   - type: Documentation
