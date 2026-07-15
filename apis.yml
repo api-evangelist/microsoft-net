@@ -115,6 +115,8 @@ apis:
       - type: GettingStarted
         url: https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app
 common:
+  - type: AgenticAccess
+    url: agentic-access/microsoft-net-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/microsoft-net-vulnerability-disclosure.yml
   - type: DomainSecurity
