@@ -1,0 +1,118 @@
+openapi: 3.1.0
+info:
+  title: NuGet Server API (V3) PackageContent API
+  description: The NuGet Server API is the set of HTTP endpoints used by the .NET CLI, NuGet client, Visual Studio, and other tooling to discover, download, publish, and unlist NuGet packages from nuget.org and compatible package sources. Entry point is the service index at /v3/index.json. Endpoints documented here cover discovery (service index), search, registration (package metadata), package base address (content), and publish.
+  version: '3'
+servers:
+- url: https://api.nuget.org/v3
+  description: nuget.org V3 API root
+security: []
+tags:
+- name: PackageContent
+paths:
+  /flatcontainer/{id}/index.json:
+    get:
+      tags:
+      - PackageContent
+      summary: List package versions
+      description: PackageBaseAddress resource — returns the list of all available versions for the specified package.
+      operationId: listPackageVersions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Versions document
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  versions:
+                    type: array
+                    items:
+                      type: string
+        '404':
+          description: Package not found
+  /flatcontainer/{id}/{version}/{id_lower}.{version_lower}.nupkg:
+    get:
+      tags:
+      - PackageContent
+      summary: Download a package (.nupkg)
+      operationId: downloadPackage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id_lower
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Lowercased package ID.
+      - name: version_lower
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Lowercased version.
+      responses:
+        '200':
+          description: NuGet package content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Not found
+  /flatcontainer/{id}/{version}/{id_lower}.nuspec:
+    get:
+      tags:
+      - PackageContent
+      summary: Download a package manifest (.nuspec)
+      operationId: downloadNuspec
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id_lower
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Package nuspec XML
+          content:
+            application/xml:
+              schema:
+                type: string
+        '404':
+          description: Not found
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-NuGet-ApiKey
+      description: NuGet API key (required only for PackagePublish push/delete operations).
+x-generated-from: https://learn.microsoft.com/en-us/nuget/api/overview
+x-generated-by: claude-genwave10-08-2026-05-23

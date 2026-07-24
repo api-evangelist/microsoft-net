@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: NuGet Server API (V3) PackageContent Registration API
+  description: The NuGet Server API is the set of HTTP endpoints used by the .NET CLI, NuGet client, Visual Studio, and other tooling to discover, download, publish, and unlist NuGet packages from nuget.org and compatible package sources. Entry point is the service index at /v3/index.json. Endpoints documented here cover discovery (service index), search, registration (package metadata), package base address (content), and publish.
+  version: '3'
+servers:
+- url: https://api.nuget.org/v3
+  description: nuget.org V3 API root
+security: []
+tags:
+- name: Registration
+paths:
+  /registration5-semver1/{id}/index.json:
+    get:
+      tags:
+      - Registration
+      summary: Get registration index for a package
+      description: Returns the registration index for a package ID, listing all available versions and metadata. Package ID must be lowercased.
+      operationId: getRegistrationIndex
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Lowercased package ID.
+      responses:
+        '200':
+          description: Registration index
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Package not found
+  /registration5-semver1/{id}/{version}.json:
+    get:
+      tags:
+      - Registration
+      summary: Get registration leaf for a specific package version
+      operationId: getRegistrationLeaf
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Registration leaf
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Version not found
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-NuGet-ApiKey
+      description: NuGet API key (required only for PackagePublish push/delete operations).
+x-generated-from: https://learn.microsoft.com/en-us/nuget/api/overview
+x-generated-by: claude-genwave10-08-2026-05-23
