@@ -7,7 +7,20 @@ description: >-
   templates, and build tooling across web, mobile, desktop, games, IoT, cloud, and
   microservices workloads.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-net.png
 url: >-
   https://raw.githubusercontent.com/api-evangelist/microsoft-net/refs/heads/main/apis.yml
 created: '2024-01-01'
@@ -22,98 +35,135 @@ tags:
   - Microsoft
   - Open Source
 apis:
-  - aid: microsoft-net:dotnet-api
-    name: Microsoft .NET API Browser
-    description: >-
-      Comprehensive reference for .NET APIs across all packages, namespaces, and types
-      in the .NET ecosystem including .NET 9, .NET Standard, and .NET Framework.
-    humanURL: https://learn.microsoft.com/en-us/dotnet/api/
-    baseURL: https://learn.microsoft.com/en-us/dotnet/api/
-    tags:
-      - API Browser
-      - Class Library
-      - Reference
-    properties:
-      - type: Documentation
-        url: https://learn.microsoft.com/en-us/dotnet/api/
-      - type: APIReference
-        url: https://learn.microsoft.com/en-us/dotnet/api/
-  - aid: microsoft-net:nuget-api
-    name: NuGet Server API
-    description: >-
-      RESTful API for interacting with nuget.org and private NuGet feeds, supporting
-      package search, download, push, delete, and metadata queries for .NET package
-      management.
-    humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
-    baseURL: https://api.nuget.org/v3/
-    tags:
-      - NuGet
-      - Package Management
-      - Package Registry
-      - REST
-    properties:
-      - type: Documentation
-        url: https://learn.microsoft.com/en-us/nuget/api/overview
-      - type: APIReference
-        url: https://learn.microsoft.com/en-us/nuget/api/overview
-      - type: GettingStarted
-        url: https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio
-  - aid: microsoft-net:dotnet-cli
-    name: .NET CLI
-    description: >-
-      Cross-platform command-line interface for developing, building, running, and
-      publishing .NET applications. Provides commands for project creation, package
-      management, testing, and deployment.
-    humanURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
-    baseURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
-    tags:
-      - Build
-      - CLI
-      - Developer Tools
-      - Tooling
-    properties:
-      - type: Documentation
-        url: https://learn.microsoft.com/en-us/dotnet/core/tools/
-      - type: GettingStarted
-        url: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet
-  - aid: microsoft-net:aspnet-core-api
-    name: ASP.NET Core Web API
-    description: >-
-      Framework for building HTTP-based RESTful APIs and web services with ASP.NET
-      Core, including controllers, minimal APIs, routing, model binding, authentication,
-      and OpenAPI integration.
-    humanURL: https://learn.microsoft.com/en-us/aspnet/core/web-api/
-    baseURL: https://learn.microsoft.com/en-us/aspnet/core/
-    tags:
-      - ASP.NET Core
-      - REST
-      - Web API
-      - Web Framework
-    properties:
-      - type: Documentation
-        url: https://learn.microsoft.com/en-us/aspnet/core/web-api/
-      - type: Tutorials
-        url: https://learn.microsoft.com/en-us/aspnet/core/tutorials/
-      - type: GettingStarted
-        url: https://learn.microsoft.com/en-us/aspnet/core/getting-started
-  - aid: microsoft-net:dotnet-aspire
-    name: .NET Aspire
-    description: >-
-      Cloud-ready stack for building observable, production-ready distributed applications
-      in .NET with built-in service discovery, health checks, telemetry, and
-      configuration management.
-    humanURL: https://learn.microsoft.com/en-us/dotnet/aspire/
-    baseURL: https://learn.microsoft.com/en-us/dotnet/aspire/
-    tags:
-      - Cloud Native
-      - Distributed Systems
-      - Microservices
-      - Observability
-    properties:
-      - type: Documentation
-        url: https://learn.microsoft.com/en-us/dotnet/aspire/
-      - type: GettingStarted
-        url: https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app
+- aid: microsoft-net:dotnet-api
+  name: Microsoft .NET API Browser
+  description: >-
+    Comprehensive reference for .NET APIs across all packages, namespaces, and types in the .NET ecosystem
+    including .NET 9, .NET Standard, and .NET Framework.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  tags:
+  - API Browser
+  - Class Library
+  - Reference
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/dotnet/api/
+  - type: APIReference
+    url: https://learn.microsoft.com/en-us/dotnet/api/
+- aid: microsoft-net:nuget-api
+  name: NuGet Server API
+  description: >-
+    RESTful API for interacting with nuget.org and private NuGet feeds, supporting package search, download,
+    push, delete, and metadata queries for .NET package management.
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3/
+  tags:
+  - NuGet
+  - Package Management
+  - Package Registry
+  - REST
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/nuget/api/overview
+  - type: APIReference
+    url: https://learn.microsoft.com/en-us/nuget/api/overview
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio
+- aid: microsoft-net:dotnet-cli
+  name: .NET CLI
+  description: >-
+    Cross-platform command-line interface for developing, building, running, and publishing .NET applications.
+    Provides commands for project creation, package management, testing, and deployment.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
+  tags:
+  - Build
+  - CLI
+  - Developer Tools
+  - Tooling
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/dotnet/core/tools/
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet
+- aid: microsoft-net:aspnet-core-api
+  name: ASP.NET Core Web API
+  description: >-
+    Framework for building HTTP-based RESTful APIs and web services with ASP.NET Core, including controllers,
+    minimal APIs, routing, model binding, authentication, and OpenAPI integration.
+  humanURL: https://learn.microsoft.com/en-us/aspnet/core/web-api/
+  baseURL: https://learn.microsoft.com/en-us/aspnet/core/
+  tags:
+  - ASP.NET Core
+  - REST
+  - Web API
+  - Web Framework
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/aspnet/core/web-api/
+  - type: Tutorials
+    url: https://learn.microsoft.com/en-us/aspnet/core/tutorials/
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/aspnet/core/getting-started
+- aid: microsoft-net:dotnet-aspire
+  name: .NET Aspire
+  description: >-
+    Cloud-ready stack for building observable, production-ready distributed applications in .NET with
+    built-in service discovery, health checks, telemetry, and configuration management.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/aspire/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/aspire/
+  tags:
+  - Cloud Native
+  - Distributed Systems
+  - Microservices
+  - Observability
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/dotnet/aspire/
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app
+- aid: microsoft-net:microsoft-net-packagecontent-api
+  name: Microsoft .NET PackageContent API
+  description: The PackageContent API from Microsoft .NET — 3 operation(s) for packagecontent.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  tags:
+  - PackageContent
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-net-packagecontent-api-openapi.yml
+- aid: microsoft-net:microsoft-net-registration-api
+  name: Microsoft .NET Registration API
+  description: The Registration API from Microsoft .NET — 2 operation(s) for registration.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  tags:
+  - Registration
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-net-registration-api-openapi.yml
+- aid: microsoft-net:microsoft-net-search-api
+  name: Microsoft .NET Search API
+  description: The Search API from Microsoft .NET — 1 operation(s) for search.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-net-search-api-openapi.yml
+- aid: microsoft-net:microsoft-net-serviceindex-api
+  name: Microsoft .NET ServiceIndex API
+  description: The ServiceIndex API from Microsoft .NET — 1 operation(s) for serviceindex.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  tags:
+  - ServiceIndex
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-net-serviceindex-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/microsoft-net-agentic-access.yml
