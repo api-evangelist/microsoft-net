@@ -1,0 +1,20 @@
+{
+  "provider": "microsoft-net",
+  "sources": [
+    "microsoft-net-packagecontent-api-openapi.yml",
+    "microsoft-net-registration-api-openapi.yml",
+    "microsoft-net-search-api-openapi.yml",
+    "microsoft-net-serviceindex-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-net-packagecontent-api-openapi.yml",
+    "microsoft-net-registration-api-openapi.yml",
+    "microsoft-net-search-api-openapi.yml",
+    "microsoft-net-serviceindex-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

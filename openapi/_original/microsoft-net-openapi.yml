@@ -1,0 +1,274 @@
+openapi: 3.1.0
+info:
+  title: NuGet Server API (V3)
+  description: >-
+    The NuGet Server API is the set of HTTP endpoints used by the .NET CLI,
+    NuGet client, Visual Studio, and other tooling to discover, download,
+    publish, and unlist NuGet packages from nuget.org and compatible package
+    sources. Entry point is the service index at /v3/index.json. Endpoints
+    documented here cover discovery (service index), search, registration
+    (package metadata), package base address (content), and publish.
+  version: "3"
+x-generated-from: https://learn.microsoft.com/en-us/nuget/api/overview
+x-generated-by: claude-genwave10-08-2026-05-23
+servers:
+  - url: https://api.nuget.org/v3
+    description: nuget.org V3 API root
+security: []
+tags:
+  - name: ServiceIndex
+  - name: Search
+  - name: Registration
+  - name: PackageContent
+  - name: Publish
+paths:
+  /index.json:
+    get:
+      tags: [ServiceIndex]
+      summary: Get service index
+      description: >-
+        Returns the V3 service index describing the resources available on this
+        package source (search, registration, package base address, publish, etc.).
+      operationId: getServiceIndex
+      responses:
+        '200':
+          description: Service index document
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceIndex'
+  /query:
+    get:
+      tags: [Search]
+      summary: Search packages
+      description: >-
+        Query the SearchQueryService resource for packages matching a search
+        string. The base URL of the search service should normally be discovered
+        from the service index; this path reflects the nuget.org search resource.
+      operationId: searchPackages
+      parameters:
+        - name: q
+          in: query
+          required: false
+          schema: { type: string }
+          description: Search terms used to filter packages.
+        - name: skip
+          in: query
+          required: false
+          schema: { type: integer, default: 0 }
+        - name: take
+          in: query
+          required: false
+          schema: { type: integer, default: 20 }
+        - name: prerelease
+          in: query
+          required: false
+          schema: { type: boolean, default: false }
+        - name: semVerLevel
+          in: query
+          required: false
+          schema: { type: string, example: "2.0.0" }
+        - name: packageType
+          in: query
+          required: false
+          schema: { type: string }
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+  /registration5-semver1/{id}/index.json:
+    get:
+      tags: [Registration]
+      summary: Get registration index for a package
+      description: >-
+        Returns the registration index for a package ID, listing all available
+        versions and metadata. Package ID must be lowercased.
+      operationId: getRegistrationIndex
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+          description: Lowercased package ID.
+      responses:
+        '200':
+          description: Registration index
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Package not found
+  /registration5-semver1/{id}/{version}.json:
+    get:
+      tags: [Registration]
+      summary: Get registration leaf for a specific package version
+      operationId: getRegistrationLeaf
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+        - name: version
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Registration leaf
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Version not found
+  /flatcontainer/{id}/index.json:
+    get:
+      tags: [PackageContent]
+      summary: List package versions
+      description: >-
+        PackageBaseAddress resource — returns the list of all available versions
+        for the specified package.
+      operationId: listPackageVersions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Versions document
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  versions:
+                    type: array
+                    items: { type: string }
+        '404':
+          description: Package not found
+  /flatcontainer/{id}/{version}/{id_lower}.{version_lower}.nupkg:
+    get:
+      tags: [PackageContent]
+      summary: Download a package (.nupkg)
+      operationId: downloadPackage
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+        - name: version
+          in: path
+          required: true
+          schema: { type: string }
+        - name: id_lower
+          in: path
+          required: true
+          schema: { type: string }
+          description: Lowercased package ID.
+        - name: version_lower
+          in: path
+          required: true
+          schema: { type: string }
+          description: Lowercased version.
+      responses:
+        '200':
+          description: NuGet package content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Not found
+  /flatcontainer/{id}/{version}/{id_lower}.nuspec:
+    get:
+      tags: [PackageContent]
+      summary: Download a package manifest (.nuspec)
+      operationId: downloadNuspec
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+        - name: version
+          in: path
+          required: true
+          schema: { type: string }
+        - name: id_lower
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Package nuspec XML
+          content:
+            application/xml:
+              schema:
+                type: string
+        '404':
+          description: Not found
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-NuGet-ApiKey
+      description: NuGet API key (required only for PackagePublish push/delete operations).
+  schemas:
+    ServiceIndex:
+      type: object
+      properties:
+        version:
+          type: string
+          example: "3.0.0"
+        resources:
+          type: array
+          items:
+            type: object
+            properties:
+              "@id": { type: string, format: uri }
+              "@type": { type: string }
+              comment: { type: string }
+    SearchResponse:
+      type: object
+      properties:
+        totalHits: { type: integer }
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+    SearchResult:
+      type: object
+      properties:
+        id: { type: string }
+        version: { type: string }
+        description: { type: string }
+        authors:
+          oneOf:
+            - { type: string }
+            - { type: array, items: { type: string } }
+        iconUrl: { type: string, format: uri }
+        licenseUrl: { type: string, format: uri }
+        projectUrl: { type: string, format: uri }
+        registration: { type: string, format: uri }
+        summary: { type: string }
+        tags:
+          oneOf:
+            - { type: string }
+            - { type: array, items: { type: string } }
+        title: { type: string }
+        totalDownloads: { type: integer }
+        verified: { type: boolean }
+        versions:
+          type: array
+          items:
+            type: object
+            properties:
+              "@id": { type: string, format: uri }
+              version: { type: string }
+              downloads: { type: integer }
