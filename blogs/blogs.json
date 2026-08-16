@@ -5,7 +5,7 @@
       "source": "https://devblogs.microsoft.com/dotnet/feed/",
       "feed_url": "https://devblogs.microsoft.com/dotnet/feed/",
       "title": "",
-      "saved": 0,
+      "saved": 5,
       "method": "feed"
     },
     {
@@ -13,9 +13,10 @@
       "feed_url": "https://dotnet.microsoft.com/learn",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "none",
+      "error": "parse_failed"
     }
   ],
-  "post_count": 46,
-  "fetched": "2026-08-06T14:08:46Z"
+  "post_count": 51,
+  "fetched": "2026-08-15T12:11:08Z"
 }
