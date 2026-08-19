@@ -1,0 +1,297 @@
+{
+  "item": [
+    {
+      "id": "81cf545f-49fd-48cc-9fee-95e585538979",
+      "name": "Registration",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "66c17a6a-c7c0-4d83-aa5a-57baf07d9be0",
+          "name": "Get registration index for a package",
+          "request": {
+            "name": "Get registration index for a package",
+            "description": {
+              "content": "Returns the registration index for a package ID, listing all available versions and metadata. Package ID must be lowercased.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "registration5-semver1",
+                ":id",
+                "index.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lowercased package ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b33d99d0-0ffb-4999-aa8b-86dd258db48e",
+              "name": "Registration index",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "registration5-semver1",
+                    ":id",
+                    "index.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lowercased package ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "277c5d9c-51d1-4cc5-b263-f0411e17afe8",
+              "name": "Package not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "registration5-semver1",
+                    ":id",
+                    "index.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lowercased package ID."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32ca0216-0a5e-4b14-8704-14ce9d76ce41",
+          "name": "Get registration leaf for a specific package version",
+          "request": {
+            "name": "Get registration leaf for a specific package version",
+            "description": {},
+            "url": {
+              "path": [
+                "registration5-semver1",
+                ":id",
+                "{{version}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88c7c5de-363b-479a-b0ab-1325c83fbcc9",
+              "name": "Registration leaf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "registration5-semver1",
+                    ":id",
+                    "{{version}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98278fcd-3e36-4db6-9251-cc3756c3dbf5",
+              "name": "Version not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "registration5-semver1",
+                    ":id",
+                    "{{version}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nuget.org/v3",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "version"
+    }
+  ],
+  "info": {
+    "_postman_id": "485fbaee-c157-4229-a162-c7dbcffd1129",
+    "name": "NuGet Server API (V3) PackageContent Registration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The NuGet Server API is the set of HTTP endpoints used by the .NET CLI, NuGet client, Visual Studio, and other tooling to discover, download, publish, and unlist NuGet packages from nuget.org and compatible package sources. Entry point is the service index at /v3/index.json. Endpoints documented here cover discovery (service index), search, registration (package metadata), package base address (content), and publish.",
+      "type": "text/plain"
+    }
+  }
+}

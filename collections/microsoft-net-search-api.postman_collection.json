@@ -1,0 +1,159 @@
+{
+  "item": [
+    {
+      "id": "b845bd35-b4e9-456c-a4dc-f0cbd0ac3f91",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b9ddd00-6e39-4028-b759-5ef38e56d0f5",
+          "name": "Search packages",
+          "request": {
+            "name": "Search packages",
+            "description": {
+              "content": "Query the SearchQueryService resource for packages matching a search string. The base URL of the search service should normally be discovered from the service index; this path reflects the nuget.org search resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Search terms used to filter packages."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "prerelease",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "semVerLevel",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "packageType",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "377a7d09-cced-4706-b41f-c206246a097d",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "take",
+                      "value": "20"
+                    },
+                    {
+                      "key": "prerelease",
+                      "value": "false"
+                    },
+                    {
+                      "key": "semVerLevel",
+                      "value": "2.0.0"
+                    },
+                    {
+                      "key": "packageType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalHits\": 3609,\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"version\": \"string\",\n      \"description\": \"string\",\n      \"authors\": \"string\",\n      \"iconUrl\": \"https://VjFdcElRlbHjQqXTPstAlDmYneDPEz.jmrvC+jLrHyQ,1cYWIUOZ3q5BIZvqeiyYZM09Y,vtNW1khVW1ENp\",\n      \"licenseUrl\": \"http://efNNmLRWAXAxCTlXLObaQirah.wlvzUvwrktGi8ArJ.6N6KVT3\",\n      \"projectUrl\": \"http://GoaScklVwhc.jrrNqfiYfrtnp2F,K\",\n      \"registration\": \"https://ySaqGiozNVNsLaovcFsftTGifSJoc.zqqyP--lfhewt7NQKbmHwSwF0ZXT93KiP8afDl1\",\n      \"summary\": \"string\",\n      \"tags\": \"string\",\n      \"title\": \"string\",\n      \"totalDownloads\": 6354,\n      \"verified\": true,\n      \"versions\": [\n        {\n          \"@id\": \"https://TNIRU.ohhUd,r-udnsoxfoKpCJaj-tmk0+CivaYvMfTcgrg\",\n          \"version\": \"string\",\n          \"downloads\": 4946\n        },\n        {\n          \"@id\": \"https://yLA.kpoPg1grl2nRPbWvMnUSFUvDDviNvPkhW\",\n          \"version\": \"string\",\n          \"downloads\": 3435\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"version\": \"string\",\n      \"description\": \"string\",\n      \"authors\": \"string\",\n      \"iconUrl\": \"https://ifVL.rlqbj+wTdRqXvL0OyVIRH6gk2X9lniMMykrD78iNp1nAH27UN.vjnn\",\n      \"licenseUrl\": \"http://ftEVvefRWdIsXEUwYTZd.zaZMOfbXm\",\n      \"projectUrl\": \"http://metwJTGTujXFdur.dowk2MtdNWiE.XitrKY3EuL\",\n      \"registration\": \"https://xDdKoJxZwUBYBnlcdhWLAV.plieh8KeXbEyN6wIeI3c\",\n      \"summary\": \"string\",\n      \"tags\": \"string\",\n      \"title\": \"string\",\n      \"totalDownloads\": 565,\n      \"verified\": true,\n      \"versions\": [\n        {\n          \"@id\": \"https://qhQgBVaFRkcwYCwiduni.gmxkEJNwgx5RxkvgDKNdtip73LcNMII7rO1j,zKUbwuE,5diQOa8JDLTXKnlPdgFa\",\n          \"version\": \"string\",\n          \"downloads\": 9986\n        },\n        {\n          \"@id\": \"http://vkyBlbDmrLccu.egwWrKH6Qy3z+NKRyA,w1Ug\",\n          \"version\": \"string\",\n          \"downloads\": 7330\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nuget.org/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b73a122e-9c72-4c7d-867b-f53f92cfbf58",
+    "name": "NuGet Server API (V3) PackageContent Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The NuGet Server API is the set of HTTP endpoints used by the .NET CLI, NuGet client, Visual Studio, and other tooling to discover, download, publish, and unlist NuGet packages from nuget.org and compatible package sources. Entry point is the service index at /v3/index.json. Endpoints documented here cover discovery (service index), search, registration (package metadata), package base address (content), and publish.",
+      "type": "text/plain"
+    }
+  }
+}

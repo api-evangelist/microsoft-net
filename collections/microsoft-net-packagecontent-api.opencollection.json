@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NuGet Server API (V3) PackageContent API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PackageContent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List package versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/flatcontainer/:id/index.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PackageBaseAddress resource — returns the list of all available versions for the specified package."
+        },
+        {
+          "info": {
+            "name": "Download a package (.nupkg)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/flatcontainer/:id/:version/:id_lower.:version_lower.nupkg",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id_lower",
+                "value": "",
+                "type": "path",
+                "description": "Lowercased package ID."
+              },
+              {
+                "name": "version_lower",
+                "value": "",
+                "type": "path",
+                "description": "Lowercased version."
+              }
+            ]
+          },
+          "docs": "Download a package (.nupkg)"
+        },
+        {
+          "info": {
+            "name": "Download a package manifest (.nuspec)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/flatcontainer/:id/:version/:id_lower.nuspec",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id_lower",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download a package manifest (.nuspec)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
