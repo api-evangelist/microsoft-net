@@ -33,6 +33,14 @@ tags:
   - Cross-Platform
   - Developer Tools
   - Microsoft
+  - Open-Source
+tags_raw:
+  - .NET
+  - C#
+  - Cloud
+  - Cross-Platform
+  - Developer Tools
+  - Microsoft
   - Open Source
 apis:
 - aid: microsoft-net:dotnet-api
@@ -79,6 +87,11 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
   baseURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
   tags:
+  - Builds
+  - CLI
+  - Developer Tools
+  - Tooling
+  tags_raw:
   - Build
   - CLI
   - Developer Tools
@@ -115,6 +128,11 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/dotnet/aspire/
   baseURL: https://learn.microsoft.com/en-us/dotnet/aspire/
   tags:
+  - Cloud-Native
+  - Distributed Systems
+  - Microservices
+  - Observability
+  tags_raw:
   - Cloud Native
   - Distributed Systems
   - Microservices
