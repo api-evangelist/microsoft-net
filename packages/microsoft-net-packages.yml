@@ -1,0 +1,218 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://api.nuget.org/v3/registration5-semver1/<id>/index.json (NuGet registration metadata,
+  read unauthenticated per package), plus https://dotnet.microsoft.com/download and
+  https://learn.microsoft.com/en-us/nuget/api/overview
+note: >-
+  Microsoft .NET distributes its first-party libraries through NuGet, which Microsoft also operates —
+  the registry and the publisher are the same company here. Versions and publish dates below were read
+  from the NuGet registration catalogEntry on 2026-08-29. There is no first-party .NET client library on
+  npm, PyPI, RubyGems, Packagist or crates.io; the SDK itself ships as a platform installer from
+  dotnet.microsoft.com/download, not as a registry package, so it is recorded as registry: installer
+  with a null version because the download page floats to the latest servicing release.
+packages:
+  - language: csharp
+    registry: nuget
+    name: Microsoft.NETCore.App.Ref
+    url: https://www.nuget.org/packages/Microsoft.NETCore.App.Ref
+    install: dotnet add package Microsoft.NETCore.App.Ref
+    official: true
+    version: 10.0.11
+    published: '2026-08-11'
+    note: .NET runtime reference assemblies — the targeting pack for the base class library.
+  - language: csharp
+    registry: nuget
+    name: Microsoft.AspNetCore.App.Ref
+    url: https://www.nuget.org/packages/Microsoft.AspNetCore.App.Ref
+    install: dotnet add package Microsoft.AspNetCore.App.Ref
+    official: true
+    version: 10.0.11
+    published: '2026-08-11'
+    note: ASP.NET Core shared-framework reference assemblies.
+  - language: csharp
+    registry: nuget
+    name: Microsoft.AspNetCore.OpenApi
+    url: https://www.nuget.org/packages/Microsoft.AspNetCore.OpenApi
+    install: dotnet add package Microsoft.AspNetCore.OpenApi
+    official: true
+    version: 10.0.11
+    published: '2026-08-11'
+    note: First-party OpenAPI document generation for ASP.NET Core minimal APIs and controllers.
+  - language: csharp
+    registry: nuget
+    name: Microsoft.EntityFrameworkCore
+    url: https://www.nuget.org/packages/Microsoft.EntityFrameworkCore
+    install: dotnet add package Microsoft.EntityFrameworkCore
+    official: true
+    version: 10.0.11
+    published: '2026-08-11'
+  - language: csharp
+    registry: nuget
+    name: Microsoft.Extensions.Hosting
+    url: https://www.nuget.org/packages/Microsoft.Extensions.Hosting
+    install: dotnet add package Microsoft.Extensions.Hosting
+    official: true
+    version: 10.0.11
+    published: '2026-08-11'
+  - language: csharp
+    registry: nuget
+    name: Microsoft.Extensions.DependencyInjection
+    url: https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection
+    install: dotnet add package Microsoft.Extensions.DependencyInjection
+    official: true
+    version: 10.0.11
+    published: '2026-08-11'
+  - language: csharp
+    registry: nuget
+    name: Microsoft.Extensions.Http
+    url: https://www.nuget.org/packages/Microsoft.Extensions.Http
+    install: dotnet add package Microsoft.Extensions.Http
+    official: true
+    version: 10.0.11
+    published: '2026-08-11'
+  - language: csharp
+    registry: nuget
+    name: System.Text.Json
+    url: https://www.nuget.org/packages/System.Text.Json
+    install: dotnet add package System.Text.Json
+    official: true
+    version: 10.0.11
+    published: '2026-08-11'
+  - language: csharp
+    registry: nuget
+    name: Microsoft.Extensions.AI
+    url: https://www.nuget.org/packages/Microsoft.Extensions.AI
+    install: dotnet add package Microsoft.Extensions.AI
+    official: true
+    version: 10.9.0
+    published: '2026-08-11'
+    note: First-party AI abstractions used by .NET agent and MCP scenarios.
+  - language: csharp
+    registry: nuget
+    name: Microsoft.Extensions.AI.OpenAI
+    url: https://www.nuget.org/packages/Microsoft.Extensions.AI.OpenAI
+    install: dotnet add package Microsoft.Extensions.AI.OpenAI
+    official: true
+    version: 10.9.0
+    published: '2026-08-11'
+  - language: csharp
+    registry: nuget
+    name: Microsoft.Maui.Controls
+    url: https://www.nuget.org/packages/Microsoft.Maui.Controls
+    install: dotnet add package Microsoft.Maui.Controls
+    official: true
+    version: 10.0.100
+    published: '2026-08-20'
+  - language: csharp
+    registry: nuget
+    name: Aspire.Hosting
+    url: https://www.nuget.org/packages/Aspire.Hosting
+    install: dotnet add package Aspire.Hosting
+    official: true
+    version: 13.5.3
+    published: '2026-08-25'
+    note: .NET Aspire app-host library — the distributed-application composition surface.
+  - language: csharp
+    registry: nuget
+    name: Aspire.Hosting.AppHost
+    url: https://www.nuget.org/packages/Aspire.Hosting.AppHost
+    install: dotnet add package Aspire.Hosting.AppHost
+    official: true
+    version: 13.5.3
+    published: '2026-08-25'
+  - language: csharp
+    registry: nuget
+    name: NuGet.Protocol
+    url: https://www.nuget.org/packages/NuGet.Protocol
+    install: dotnet add package NuGet.Protocol
+    official: true
+    version: 7.9.0
+    published: '2026-08-11'
+    note: The first-party client library for the NuGet Server API (V3) documented in openapi/.
+  - language: csharp
+    registry: nuget
+    name: NuGet.Packaging
+    url: https://www.nuget.org/packages/NuGet.Packaging
+    install: dotnet add package NuGet.Packaging
+    official: true
+    version: 7.9.0
+    published: '2026-08-11'
+  - language: csharp
+    registry: nuget
+    name: NuGet.Commands
+    url: https://www.nuget.org/packages/NuGet.Commands
+    install: dotnet add package NuGet.Commands
+    official: true
+    version: 7.9.0
+    published: '2026-08-11'
+  - language: csharp
+    registry: nuget
+    name: NuGet.Mcp.Server
+    url: https://www.nuget.org/packages/NuGet.Mcp.Server
+    install: dnx NuGet.Mcp.Server --yes
+    official: true
+    version: 1.4.16
+    published: '2026-06-30'
+    note: >-
+      The first-party NuGet MCP server, distributed as a NuGet tool package and launched with the
+      .NET 10 `dnx` command. Runtime-specific builds also published
+      (NuGet.Mcp.Server.win-x64 / .linux-x64 / .win-arm64 / .osx-arm64 / .linux-arm64, all 1.4.16).
+  - language: csharp
+    registry: nuget
+    name: ModelContextProtocol
+    url: https://www.nuget.org/packages/ModelContextProtocol
+    install: dotnet add package ModelContextProtocol
+    official: true
+    version: 2.2.0
+    published: '2026-08-13'
+    note: >-
+      The C# MCP SDK. Published on nuget.org and developed at github.com/modelcontextprotocol/csharp-sdk
+      in collaboration with Microsoft; it is the library the `dotnet new mcpserver` template targets.
+  - language: csharp
+    registry: nuget
+    name: ModelContextProtocol.AspNetCore
+    url: https://www.nuget.org/packages/ModelContextProtocol.AspNetCore
+    install: dotnet add package ModelContextProtocol.AspNetCore
+    official: true
+    version: 2.2.0
+    published: '2026-08-13'
+  - language: csharp
+    registry: nuget
+    name: Microsoft.Playwright
+    url: https://www.nuget.org/packages/Microsoft.Playwright
+    install: dotnet add package Microsoft.Playwright
+    official: true
+    version: 1.62.0
+    published: '2026-08-11'
+  - language: multiple
+    registry: installer
+    name: .NET SDK
+    url: https://dotnet.microsoft.com/download
+    install: See platform installers, apt/yum feeds, Homebrew, and the dotnet-install scripts.
+    official: true
+    version: null
+    published: null
+    note: >-
+      Checked, nothing to record as a pinned version — the .NET SDK ships as a platform installer and
+      the download page floats to the latest servicing release rather than exposing a registry metadata
+      endpoint. The supported-version table on
+      https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core named .NET 10.0.11 (patch
+      released 2026-08-11) as the current LTS patch on the date of this probe; see lifecycle/.
+registries_checked:
+  - registry: nuget
+    result: 21 first-party packages recorded
+  - registry: npm
+    result: no first-party Microsoft .NET client library
+  - registry: pypi
+    result: no first-party Microsoft .NET client library
+  - registry: rubygems
+    result: no first-party Microsoft .NET client library
+  - registry: packagist
+    result: no first-party Microsoft .NET client library
+  - registry: crates.io
+    result: no first-party Microsoft .NET client library
+  - registry: maven-central
+    result: no first-party Microsoft .NET client library
+  - registry: pkg.go.dev
+    result: no first-party Microsoft .NET client library

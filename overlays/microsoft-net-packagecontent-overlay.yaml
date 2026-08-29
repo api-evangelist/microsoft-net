@@ -1,0 +1,61 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for NuGet Server API (V3) Package Content API
+  version: 1.0.0
+extends: openapi/microsoft-net-packagecontent-api-openapi.yml
+x-generated: '2026-08-29'
+x-method: generated
+x-source: apis.yml + repo artifacts (conventions/, errors/, lifecycle/, sandbox/, authentication/)
+x-note: >-
+  Non-destructive Overlay 1.0.0 of API Evangelist's own annotations. It never mutates the
+  harvested contract and adds no operations, paths, schemas or parameters that the provider
+  does not publish — only cross-references to artifacts in this repo and facts read from the
+  provider's own documentation.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: microsoft-net
+      x-apievangelist-artifacts:
+        conventions: conventions/microsoft-net-conventions.yml
+        errors: errors/microsoft-net-problem-types.yml
+        lifecycle: lifecycle/microsoft-net-lifecycle.yml
+        authentication: authentication/microsoft-net-authentication.yml
+        rate_limits: rate-limits/microsoft-net-rate-limits.yml
+        sandbox: sandbox/microsoft-net-sandbox.yml
+        data_model: data-model/microsoft-net-data-model.yml
+        conformance: conformance/microsoft-net-conformance.yml
+      x-apievangelist-service-index: https://api.nuget.org/v3/index.json
+      x-apievangelist-sandbox-source: https://apiint.nugettest.org/v3/index.json
+  - target: $.servers
+    update:
+      x-apievangelist-discovery-note: >-
+        Clients should not hardcode this host. Resolve the resource @id from the service index
+        at https://api.nuget.org/v3/index.json so the same code works against any V3-compatible
+        source.
+  - target: $.paths['/flatcontainer/{id}/index.json'].get
+    update:
+      x-apievangelist-safe: true
+      x-apievangelist-idempotent: true
+      x-apievangelist-reversibility: na
+      x-apievangelist-note: >-
+        Read-only GET. Reversibility is not applicable. Throttling is signalled by a 429 with
+        the wait time in the message body rather than in a Retry-After header; see
+        rate-limits/microsoft-net-rate-limits.yml.
+  - target: $.paths['/flatcontainer/{id}/{version}/{id_lower}.{version_lower}.nupkg'].get
+    update:
+      x-apievangelist-safe: true
+      x-apievangelist-idempotent: true
+      x-apievangelist-reversibility: na
+      x-apievangelist-note: >-
+        Read-only GET. Reversibility is not applicable. Throttling is signalled by a 429 with
+        the wait time in the message body rather than in a Retry-After header; see
+        rate-limits/microsoft-net-rate-limits.yml.
+  - target: $.paths['/flatcontainer/{id}/{version}/{id_lower}.nuspec'].get
+    update:
+      x-apievangelist-safe: true
+      x-apievangelist-idempotent: true
+      x-apievangelist-reversibility: na
+      x-apievangelist-note: >-
+        Read-only GET. Reversibility is not applicable. Throttling is signalled by a 429 with
+        the wait time in the message body rather than in a Retry-After header; see
+        rate-limits/microsoft-net-rate-limits.yml.

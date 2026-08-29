@@ -1,0 +1,136 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  openapi/microsoft-net-*-openapi.yml, https://www.nuget.org/api/v2/$metadata (probed 2026-08-29),
+  https://learn.microsoft.com/en-us/nuget/api/overview,
+  https://learn.microsoft.com/en-us/compliance/regulatory/offering-home
+standards:
+  - id: odata-v2
+    conforms: true
+    evidence: >-
+      The NuGet V2 (LegacyGallery) API is a real OData service. GET https://www.nuget.org/api/v2/
+      returns an AtomPub service document and GET https://www.nuget.org/api/v2/$metadata returns a
+      4,042-byte EDMX CSDL (edmx:Edmx Version 1.0, DataServiceVersion 2.0, Schema Namespace
+      NuGetGallery.OData, EntityType V2FeedPackage) — both probed HTTP 200 on 2026-08-29. Saved verbatim
+      to conformance/microsoft-net-nuget-v2-odata-metadata.xml.
+    domain_standard: true
+    surface: https://www.nuget.org/api/v2
+    note: >-
+      This is the DOMAIN-STANDARD signature for the package-registry market: a client that already
+      speaks OData can enumerate the nuget.org feed with no bespoke connector. Note that the surface is
+      partially deprecated — arbitrary third-party OData query shapes have returned 400
+      NuGet.V2.Deprecated since 2021-03-09 (see lifecycle/), while the scoped queries the official
+      client makes remain supported.
+  - id: nuget-v3-protocol
+    conforms: true
+    evidence: >-
+      Self-describing service index at https://api.nuget.org/v3/index.json (probed 200, version 3.0.0)
+      enumerating typed resources — SearchQueryService/3.5.0, SearchAutocompleteService/3.5.0,
+      RegistrationsBaseUrl/3.6.0, PackageBaseAddress/3.0.0, PackagePublish/2.0.0,
+      SymbolPackagePublish/4.9.0, Catalog/3.0.0, VulnerabilityInfo/6.7.0, RepositorySignatures/5.0.0.
+      Specified at https://learn.microsoft.com/en-us/nuget/api/overview and implemented by every
+      compatible package source (Azure Artifacts, GitHub Packages, Artifactory, ProGet, Nexus).
+    domain_standard: true
+    surface: https://api.nuget.org/v3/index.json
+  - id: semver-2.0.0
+    conforms: true
+    evidence: >-
+      The V3 search and registration resources take a semVerLevel parameter (example 2.0.0 in
+      openapi/microsoft-net-search-api-openapi.yml) and nuget.org publishes semver1 and semver2
+      registration hives side by side (registration5-semver1, registration5-gz-semver2).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      No response in openapi/ declares application/problem+json. The NuGet V3 API returns bare status
+      codes with JSON or XML bodies; the V2 OData surface returns an OData m:error XML envelope.
+      Separately, ASP.NET Core — the .NET web framework, not the NuGet API — does implement RFC 9457
+      Problem Details as its default error envelope via AddProblemDetails().
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      No oauth2 securityScheme in any spec in openapi/. Authentication on the write surface is an API
+      key in the X-NuGet-ApiKey header (see authentication/).
+  - id: oidc
+    conforms: false
+    evidence: >-
+      No /.well-known/openid-configuration served on any provider host (all probed 404/400 on
+      2026-08-29; see well-known/). ASP.NET Core ships an OIDC client and Microsoft Entra ID is an
+      OIDC provider, but neither is this API's own auth surface.
+  - id: rfc9116-security-txt
+    conforms: true
+    evidence: >-
+      https://www.microsoft.com/.well-known/security.txt returns 200 with Contact, Policy, Encryption,
+      Acknowledgments, Canonical and Expires fields. Saved to well-known/microsoft-net-security.txt.
+  - id: openapi-3.x
+    conforms: true
+    evidence: >-
+      The harvested contract at openapi/_original/microsoft-net-openapi.yml is OpenAPI 3.1.0; the
+      per-tag refined documents are OpenAPI 3.2.0. Separately, Microsoft.AspNetCore.OpenApi (10.0.11) is
+      the first-party OpenAPI document generator .NET ships for consumers' own APIs.
+  - id: json-api
+    conforms: false
+    evidence: Responses are plain JSON documents; no JSON:API media type or envelope.
+  - id: fhir-r4
+    conforms: false
+    evidence: Not a healthcare surface.
+  - id: scim2
+    conforms: false
+    evidence: No urn:ietf:params:scim:schemas URNs and no /Users or /Groups resources.
+  - id: fapi
+    conforms: false
+    evidence: Not a financial-grade surface.
+  - id: psd2
+    conforms: false
+    evidence: Not a payments surface.
+  - id: cursor-pagination
+    conforms: false
+    evidence: >-
+      Search uses offset pagination (skip/take in openapi/microsoft-net-search-api-openapi.yml), not
+      cursor pagination. See conventions/.
+  - id: idempotency-key
+    conforms: false
+    evidence: >-
+      No Idempotency-Key header or parameter anywhere in openapi/ or in the NuGet API docs. Idempotency
+      on the write surface is a property of the operations themselves rather than a client-supplied key
+      — see conventions/ for the reversibility and idempotency analysis.
+compliance:
+  published: true
+  url: https://www.microsoft.com/en-us/trust-center
+  certifications_reference: https://learn.microsoft.com/en-us/compliance/regulatory/offering-home
+  scope_note: >-
+    The certifications below are MICROSOFT-WIDE, covering the Microsoft online services that operate
+    nuget.org and the Learn documentation platform. They are NOT a certification of the .NET platform
+    itself, which is free open-source software shipped under the MIT licence with no product-level
+    audit. Recorded here because the callable surface in this profile (api.nuget.org, www.nuget.org,
+    learn.microsoft.com) is Microsoft-operated and therefore in scope of the corporate programme.
+  named:
+    - SOC 1
+    - SOC 2
+    - ISO/IEC 27001
+    - ISO/IEC 27018
+    - HIPAA
+    - FedRAMP
+    - GDPR
+  evidence:
+    - url: https://learn.microsoft.com/en-us/compliance/regulatory/offering-home
+      http_status: 200
+      date: '2026-08-29'
+      keywords_found: [soc 1, soc 2, iso 27001, iso 27018, hipaa, fedramp, gdpr]
+    - url: https://www.microsoft.com/en-us/trust-center
+      http_status: 200
+      date: '2026-08-29'
+    - url: https://servicetrust.microsoft.com/
+      http_status: 200
+      date: '2026-08-29'
+supply_chain:
+  - id: nuget-repository-signing
+    conforms: true
+    evidence: >-
+      RepositorySignatures/5.0.0 resource in the V3 service index
+      (https://api.nuget.org/v3-index/repository-signatures/5.0.0/index.json) — nuget.org
+      repository-signs every package it serves, and the client validates the signature.
+  - id: nuget-vulnerability-feed
+    conforms: true
+    evidence: >-
+      VulnerabilityInfo/6.7.0 resource at https://api.nuget.org/v3/vulnerabilities/index.json — a
+      machine-readable advisory feed the client consumes for NuGet Audit.

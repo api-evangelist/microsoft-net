@@ -1,16 +1,52 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/microsoft-net-openapi.yml
+generated: '2026-08-29'
+method: searched
+source: openapi/microsoft-net-*-openapi.yml
+docs: https://learn.microsoft.com/en-us/nuget/api/package-publish-resource
 summary:
   types:
-  - apiKey
+    - apiKey
   api_key_in:
-  - header
+    - header
+  anonymous_read: true
+note: >-
+  The defining fact about authentication on this API is how little of it there is. Every read operation
+  in openapi/ — service index, search, registration, flat container — is fully anonymous and sends no
+  credential at all; each spec carries `security: []`. The API key is required only on the write surface
+  (push, unlist/delete, relist, symbol push), which is documented in Microsoft's API reference but is not
+  modelled in openapi/. There is no OAuth, no OIDC, no scopes and no /.well-known/openid-configuration on
+  any provider host (all probed 404 or 400 on 2026-08-29; see well-known/), so scopes/ is intentionally
+  absent rather than empty.
 schemes:
-- name: apiKey
-  type: apiKey
-  in: header
-  parameter: X-NuGet-ApiKey
-  description: NuGet API key (required only for PackagePublish push/delete operations).
-  sources:
-  - openapi/microsoft-net-openapi.yml
+  - name: apiKey
+    type: apiKey
+    in: header
+    parameter: X-NuGet-ApiKey
+    description: NuGet API key (required only for PackagePublish push/delete operations).
+    sources:
+      - openapi/microsoft-net-serviceindex-api-openapi.yml
+      - openapi/microsoft-net-search-api-openapi.yml
+      - openapi/microsoft-net-registration-api-openapi.yml
+      - openapi/microsoft-net-packagecontent-api-openapi.yml
+    format: >-
+      Recorded verbatim from the docs: "The API key is an opaque string gotten from the package source by
+      the user and configured into the client. No particular string format is mandated but the length of
+      the API key should not exceed a reasonable size for HTTP header values."
+    issued_at: https://www.nuget.org/account/apikeys
+    scoping: >-
+      nuget.org lets an owner scope a key by glob pattern over package IDs and by action (push new,
+      push new version, unlist), and set an expiry — a per-key permission model configured in the
+      gallery UI rather than an OAuth scope surface exposed on the wire.
+    applies_to:
+      - 'PUT https://www.nuget.org/api/v2/package (push)'
+      - 'DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION} (unlist)'
+      - 'POST https://www.nuget.org/api/v2/package/{ID}/{VERSION} (relist)'
+      - 'PUT https://www.nuget.org/api/v2/symbolpackage (symbol push)'
+    test_vs_live: >-
+      A NuGet API key carries no visible test/live marker, and the pre-production gallery at
+      int.nugettest.org issues its own separate keys. The --source argument, not the key, is what
+      separates a test push from a real one. See sandbox/.
+oauth2: false
+openid_connect: false
+mutual_tls: false
+scopes_artifact: null
+scopes_note: No OAuth2 scheme exists on this API, so no scopes/ artifact is emitted.

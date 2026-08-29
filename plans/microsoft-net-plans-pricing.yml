@@ -4,191 +4,54 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Microsoft .NET
 providerId: microsoft-net
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - .NET
-  - C#
-  - Cloud
-  - Cross-Platform
-  - Developer Tools
-  - Microsoft
-  - Open Source
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
-plans:
-  - id: microsoft-net-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the Microsoft .NET API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://learn.microsoft.com/en-us/dotnet/api/
-          - https://api.nuget.org/v3/
-          - https://learn.microsoft.com/en-us/dotnet/core/tools/
-          - https://learn.microsoft.com/en-us/aspnet/core/
-          - https://learn.microsoft.com/en-us/dotnet/aspire/
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://learn.microsoft.com/en-us/dotnet/api/
-          - https://api.nuget.org/v3/
-          - https://learn.microsoft.com/en-us/dotnet/core/tools/
-          - https://learn.microsoft.com/en-us/aspnet/core/
-          - https://learn.microsoft.com/en-us/dotnet/aspire/
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Microsoft .NET API Browser
-      - name: NuGet Server API
-      - name: .NET CLI
-      - name: ASP.NET Core Web API
-      - name: .NET Aspire
-  - id: microsoft-net-pro
-    name: Professional
-    type: paid
-    description: Production tier for Microsoft .NET. Provides higher quotas, priority support, and access
-      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://learn.microsoft.com/en-us/dotnet/api/
-          - https://api.nuget.org/v3/
-          - https://learn.microsoft.com/en-us/dotnet/core/tools/
-          - https://learn.microsoft.com/en-us/aspnet/core/
-          - https://learn.microsoft.com/en-us/dotnet/aspire/
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://learn.microsoft.com/en-us/dotnet/api/
-          - https://api.nuget.org/v3/
-          - https://learn.microsoft.com/en-us/dotnet/core/tools/
-          - https://learn.microsoft.com/en-us/aspnet/core/
-          - https://learn.microsoft.com/en-us/dotnet/aspire/
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains:
-          - https://learn.microsoft.com/en-us/dotnet/api/
-          - https://api.nuget.org/v3/
-          - https://learn.microsoft.com/en-us/dotnet/core/tools/
-          - https://learn.microsoft.com/en-us/aspnet/core/
-          - https://learn.microsoft.com/en-us/dotnet/aspire/
-        unit: 1000
-        price: TBD
-        userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Microsoft .NET API Browser
-      - name: NuGet Server API
-      - name: .NET CLI
-      - name: ASP.NET Core Web API
-      - name: .NET Aspire
-  - id: microsoft-net-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for Microsoft .NET. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
-    entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://learn.microsoft.com/en-us/dotnet/api/
-          - https://api.nuget.org/v3/
-          - https://learn.microsoft.com/en-us/dotnet/core/tools/
-          - https://learn.microsoft.com/en-us/aspnet/core/
-          - https://learn.microsoft.com/en-us/dotnet/aspire/
-        unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://learn.microsoft.com/en-us/dotnet/api/
-          - https://api.nuget.org/v3/
-          - https://learn.microsoft.com/en-us/dotnet/core/tools/
-          - https://learn.microsoft.com/en-us/aspnet/core/
-          - https://learn.microsoft.com/en-us/dotnet/aspire/
-        unit: 1
-        price: custom
-        userMultiplied: false
-    elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Microsoft .NET API Browser
-      - name: NuGet Server API
-      - name: .NET CLI
-      - name: ASP.NET Core Web API
-      - name: .NET Aspire
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
-    url: https://apievangelist.com
+modified: '2026-08-29'
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://dotnet.microsoft.com/en-us/platform/support,
+  https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core,
+  https://www.nuget.org/policies/Terms
+supersedes: >-
+  The 2026-05-04 bulk-sweep scaffold that previously occupied this file. It invented a Free/Pro/Enterprise
+  tier structure with placeholder quotas for a platform that has no paid tiers at all. Removed.
+description: >-
+  Microsoft .NET publishes no plans and no pricing, because there is nothing to price. The platform is
+  free and open source under the MIT licence, the SDK and runtime are free downloads, and the NuGet
+  Server API is free to call — anonymously for reads, and with a free account-issued API key for
+  publishing. There is no paid tier, no metered usage, and no overage on any surface in this profile.
+plan_count: 0
+plans: []
+evidence:
+  - url: https://dotnet.microsoft.com/en-us/pricing
+    http_status: 404
+    date: '2026-08-29'
+    note: No pricing page exists on the .NET site.
+  - url: https://www.nuget.org/policies/Pricing
+    http_status: 404
+    date: '2026-08-29'
+    note: No pricing page exists on nuget.org.
+  - url: https://dotnet.microsoft.com/en-us/platform/support
+    http_status: 200
+    date: '2026-08-29'
+    note: >-
+      The support page routes commercial customers to Microsoft Unified Support — an enterprise support
+      contract covering Microsoft products generally, not a .NET API plan with quotas or per-call
+      pricing. Priced by negotiation; nothing published.
+  - url: https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core
+    http_status: 200
+    date: '2026-08-29'
+    note: >-
+      Recorded verbatim: LTS releases "get free support and patches for three years", STS releases "get
+      free support and patches for two years". Support duration, not price, is the axis .NET
+      differentiates on.
+commercial_model:
+  free: true
+  open_source: true
+  licence: MIT
+  paid_tiers: false
+  metered: false
+  enterprise_contact: https://dotnet.microsoft.com/en-us/platform/support
+  note: >-
+    Where money does enter the .NET ecosystem it is next to the platform rather than in it — Visual
+    Studio subscriptions, Azure consumption, Azure Artifacts for private package feeds, and Microsoft
+    Unified Support. None of those is a plan on the APIs profiled here, so none is recorded as one.

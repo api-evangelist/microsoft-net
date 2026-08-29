@@ -1,0 +1,122 @@
+generated: '2026-08-29'
+method: derived
+source: >-
+  openapi/microsoft-net-*-openapi.yml ($ref graph and id-reference fields), enriched from
+  https://learn.microsoft.com/en-us/nuget/api/registration-base-url-resource and
+  https://learn.microsoft.com/en-us/nuget/api/service-index
+note: >-
+  The NuGet data model is unusual in that its entities are linked by hypermedia rather than by opaque
+  ids: every document carries an "@id" that is an absolute URL to the next document, and "@type" names
+  its role. There are no id prefixes to catalogue. The natural key throughout is the (id, version) pair,
+  with id lowercased and version normalized in every URL path.
+identifiers:
+  primary_key: (id, version)
+  id_format: case-insensitive package identifier; MUST be lowercased in URL paths
+  version_format: SemVer 1.0.0 or 2.0.0 (semVerLevel selects the hive); MUST be normalized in URL paths
+  id_prefixes: []
+  hypermedia: true
+  hypermedia_note: '@id is an absolute URL; @type is the JSON-LD-style resource type.'
+entities:
+  - name: ServiceIndex
+    schema: openapi/microsoft-net-serviceindex-api-openapi.yml#/components/schemas/ServiceIndex
+    description: The root discovery document for a package source. Everything else is reached from here.
+    fields: [version, resources]
+    domain: discovery
+  - name: Resource
+    description: One typed endpoint entry inside the service index.
+    fields: ['@id', '@type', comment]
+    domain: discovery
+  - name: SearchResponse
+    schema: openapi/microsoft-net-search-api-openapi.yml#/components/schemas/SearchResponse
+    fields: [totalHits, data]
+    domain: search
+  - name: SearchResult
+    schema: openapi/microsoft-net-search-api-openapi.yml#/components/schemas/SearchResult
+    fields:
+      - id
+      - version
+      - description
+      - authors
+      - iconUrl
+      - licenseUrl
+      - projectUrl
+      - registration
+      - summary
+      - tags
+      - title
+      - totalDownloads
+      - verified
+      - versions
+    domain: search
+  - name: RegistrationIndex
+    description: >-
+      Per-package metadata index listing every version, returned by getRegistrationIndex. Modelled as a
+      free-form object in the spec.
+    domain: metadata
+  - name: RegistrationLeaf
+    description: Per-version metadata document, returned by getRegistrationLeaf.
+    domain: metadata
+  - name: PackageVersions
+    description: The flat-container version list for a package, returned by listPackageVersions.
+    fields: [versions]
+    domain: content
+  - name: PackageContent
+    description: The .nupkg binary itself, returned by downloadPackage.
+    domain: content
+  - name: Nuspec
+    description: The package manifest XML, returned by downloadNuspec.
+    domain: content
+relationships:
+  - from: ServiceIndex
+    to: Resource
+    type: has_many
+    via: resources
+  - from: SearchResponse
+    to: SearchResult
+    type: has_many
+    via: data
+  - from: SearchResult
+    to: RegistrationIndex
+    type: has_one
+    via: registration
+    note: >-
+      The one explicit cross-entity pointer in the spec — SearchResult.registration is an absolute URL
+      to that package's registration index, so search output feeds metadata lookup directly.
+  - from: SearchResult
+    to: PackageVersions
+    type: has_many
+    via: versions
+  - from: RegistrationIndex
+    to: RegistrationLeaf
+    type: has_many
+    via: '@id per version'
+  - from: RegistrationLeaf
+    to: PackageContent
+    type: has_one
+    via: packageContent
+  - from: PackageVersions
+    to: PackageContent
+    type: has_many
+    via: '(id, version) path construction'
+  - from: PackageContent
+    to: Nuspec
+    type: has_one
+    via: sibling path in the flat container
+traversal:
+  canonical_path:
+    - getServiceIndex
+    - searchPackages
+    - getRegistrationIndex
+    - getRegistrationLeaf
+    - listPackageVersions
+    - downloadPackage
+  note: >-
+    The whole API is one funnel: discover the source, find a package, read its versions, read one
+    version's metadata, download the bytes. Every relationship above points down that funnel.
+not_modelled:
+  - Catalog (the append-only change feed, Catalog/3.0.0)
+  - VulnerabilityInfo (the advisory feed, VulnerabilityInfo/6.7.0)
+  - RepositorySignatures (the repository-signing trust roots)
+  - Symbol packages (SymbolPackagePublish/4.9.0)
+  - Push / unlist / relist entities (write surface absent from openapi/)
+subway: null

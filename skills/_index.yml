@@ -1,0 +1,26 @@
+generated: '2026-08-29'
+method: generated
+source: >-
+  openapi/microsoft-net-*-openapi.yml (every operationId verified against the specs),
+  conventions/microsoft-net-conventions.yml, errors/microsoft-net-problem-types.yml,
+  sandbox/microsoft-net-sandbox.yml, lifecycle/microsoft-net-lifecycle.yml,
+  https://learn.microsoft.com/en-us/nuget/api/package-publish-resource
+note: >-
+  Microsoft publishes no AGENTS.md or skill files for .NET or NuGet (searched 2026-08-29), so these are
+  generated. Every operationId referenced exists verbatim in the specs in openapi/. The publish skill
+  additionally documents the push/unlist/relist endpoints, which are published in Microsoft's own API
+  reference but are absent from openapi/ — those steps cite HTTP method and path rather than an
+  operationId, because no operationId exists to cite.
+skills:
+  - file: microsoft-net-find-and-install-a-package.md
+    name: Find and install a NuGet package
+    api: openapi/microsoft-net-search-api-openapi.yml
+    operations: [getServiceIndex, searchPackages, getRegistrationIndex, listPackageVersions]
+  - file: microsoft-net-publish-and-unpublish-a-package.md
+    name: Publish and unpublish a NuGet package
+    api: openapi/microsoft-net-serviceindex-api-openapi.yml
+    operations: [getServiceIndex]
+  - file: microsoft-net-audit-dependencies-for-vulnerabilities.md
+    name: Audit .NET dependencies for known vulnerabilities
+    api: openapi/microsoft-net-serviceindex-api-openapi.yml
+    operations: [getServiceIndex, getRegistrationIndex, listPackageVersions]

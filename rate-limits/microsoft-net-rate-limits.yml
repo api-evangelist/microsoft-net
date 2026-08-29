@@ -4,112 +4,100 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Microsoft .NET
 providerId: microsoft-net
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
+modified: '2026-08-29'
+generated: '2026-08-29'
+method: searched
+source: https://learn.microsoft.com/en-us/nuget/api/rate-limits
+supersedes: >-
+  The 2026-05-04 bulk-sweep scaffold that previously occupied this file. Its tiers, headers and numbers
+  were placeholders and none of them matched what NuGet publishes; every value below is now read from
+  Microsoft's own rate-limits reference page.
+description: >-
+  Published rate limits for the NuGet.org API. Limits are per-endpoint and scoped either by client IP or
+  by API key — there are no plan tiers, because the API has no paid tiers. Two distinct exhaustion
+  signals exist: 429 for throttling and 403 for quota.
 tags:
   - .NET
-  - C#
-  - Cloud
-  - Cross-Platform
-  - Developer Tools
-  - Microsoft
-  - Open Source
+  - NuGet
   - Rate Limiting
   - Quotas
   - Throttling
-description: Machine-readable rate limit definitions for the Microsoft .NET API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
 headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  limit: null
+  remaining: null
+  reset: null
+  retryAfter: null
+  policy: null
+headers_note: >-
+  The most important finding in this artifact. NuGet publishes NO rate-limit response headers — no
+  RateLimit-*, no X-RateLimit-*, and no Retry-After. The wait time is embedded as prose inside the JSON
+  error body ("Rate limit is exceeded. Try again in 56 seconds."), so a client must regex a number out
+  of a human sentence to back off correctly. An agent cannot read this limit from the response the way
+  it reads a header, and cannot see how close it is to the limit before it hits it.
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
+  quotaExceeded: 403
+  serviceUnavailable: null
+errorBodies:
+  throttled: '{"statusCode": 429, "message": "Rate limit is exceeded. Try again in 56 seconds."}'
+  quotaExceeded: '{"statusCode": 403, "message": "Quota exceeded."}'
+limit_count: 7
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Microsoft .NET API Browser
-      - NuGet Server API
-      - .NET CLI
-      - ASP.NET Core Web API
-      - .NET Aspire
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
+  - name: V3 search
+    endpoint: https://azuresearch-usnc.nuget.org/query
+    scope: none
+    limit: null
+    note: >-
+      Recorded verbatim from the docs: "We recommend using NuGet.org's V3 search APIs as it is not rate
+      limited currently." Not limited is the published state; "currently" is Microsoft's own hedge and is
+      preserved here rather than read as a guarantee.
+  - name: V1 OData package metadata
+    endpoint: GET /api/v1/Packages
+    scope: ip
     limit: 1000
-    timeFrame: month
-    applies:
-      - Microsoft .NET API Browser
-      - NuGet Server API
-      - .NET CLI
-      - ASP.NET Core Web API
-      - .NET Aspire
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
+    timeFrame: minute
+    use_case: Query NuGet package metadata via v1 OData Packages collection
+  - name: V1 search
+    endpoint: GET /api/v1/Search()
+    scope: ip
+    limit: 3000
+    timeFrame: minute
+    use_case: Search for NuGet packages via v1 Search endpoint
+  - name: V2 OData package metadata
+    endpoint: GET /api/v2/Packages
+    scope: ip
+    limit: 20000
+    timeFrame: minute
+    use_case: Query NuGet package metadata via v2 OData Packages collection
+  - name: V2 OData package count
+    endpoint: GET /api/v2/Packages/$count
+    scope: ip
     limit: 100
-    burst: 200
     timeFrame: minute
-    applies:
-      - Microsoft .NET API Browser
-      - NuGet Server API
-      - .NET CLI
-      - ASP.NET Core Web API
-      - .NET Aspire
-  - tier: professional
-    name: Professional Tier Monthly Quota
+    use_case: Query NuGet package count via v2 OData Packages collection
+  - name: Package push
+    endpoint: PUT /api/v2/package
     scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Microsoft .NET API Browser
-      - NuGet Server API
-      - .NET CLI
-      - ASP.NET Core Web API
-      - .NET Aspire
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
+    limit: 350
+    timeFrame: hour
+    use_case: Upload a new NuGet package (version) via v2 push endpoint
+  - name: Package unlist
+    endpoint: DELETE /api/v2/package/{id}/{version}
+    scope: api-key
+    limit: 250
+    timeFrame: hour
+    use_case: Unlist a NuGet package (version) via v2 endpoint
+  - name: Package details web page
+    endpoint: GET /package/{id}/{version}
+    scope: ip
+    limit: 50
     timeFrame: minute
-    applies:
-      - Microsoft .NET API Browser
-      - NuGet Server API
-      - .NET CLI
-      - ASP.NET Core Web API
-      - .NET Aspire
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
-    url: https://apievangelist.com
+    use_case: Display package (version) details page
+    note: >-
+      A web-page limit, not an API limit — recorded because the docs list it and because scraping the
+      gallery pages is the failure mode it exists to stop. Use the V3 API instead.
+docs_last_updated: '2020-05-11'
+docs_note: >-
+  Microsoft's rate-limit page carries a "Last updated on 2020-05-11" stamp. The numbers above are what
+  is published today, but they have not been revised in six years, which is worth knowing before
+  designing a client around them.

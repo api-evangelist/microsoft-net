@@ -1,0 +1,66 @@
+generated: '2026-08-29'
+method: derived
+source: >-
+  mcp/microsoft-net-mcp.yml, openapi/microsoft-net-*-openapi.yml,
+  https://learn.microsoft.com/en-us/nuget/concepts/nuget-mcp-server
+note: >-
+  The honest finding here is that Microsoft .NET's MCP surface and its REST surface do not overlap at
+  all. The remote Learn Docs MCP server exposes documentation retrieval tools, which have no backing
+  operation in the NuGet Server API. The local-stdio NuGet MCP server works against a developer's
+  project files and configured feeds rather than against the public V3 REST endpoints, and it does not
+  publish a tool list — so nothing on that server could be bound to an operationId without inventing
+  the tool names, which this crosswalk does not do. Every NuGet V3 operation is therefore rest_only.
+surfaces:
+  openapi:
+    gated: false
+    files:
+      - openapi/microsoft-net-serviceindex-api-openapi.yml
+      - openapi/microsoft-net-search-api-openapi.yml
+      - openapi/microsoft-net-registration-api-openapi.yml
+      - openapi/microsoft-net-packagecontent-api-openapi.yml
+  graphql:
+    endpoint: null
+    note: Microsoft .NET publishes no GraphQL surface.
+  mcp:
+    - url: https://learn.microsoft.com/api/mcp
+      gated: false
+      note: Anonymous tools/list returned 200 with three tools on 2026-08-29.
+    - url: null
+      package: NuGet.Mcp.Server
+      gated: true
+      note: >-
+        stdio-only; requires a local .NET 10 SDK to run, so tools/list could not be introspected and
+        the vendor publishes no tool list.
+crosswalk: []
+mcp_only:
+  - tool: microsoft_docs_search
+    server: microsoft-learn-docs
+    reason: >-
+      Documentation retrieval over Microsoft Learn. No public REST operation in this profile backs it;
+      the Learn search API is not part of the NuGet Server API contract.
+  - tool: microsoft_code_sample_search
+    server: microsoft-learn-docs
+    reason: Code-sample retrieval over Microsoft Learn. No backing REST operation in this profile.
+  - tool: microsoft_docs_fetch
+    server: microsoft-learn-docs
+    reason: Full-page documentation fetch by URL. No backing REST operation in this profile.
+rest_only:
+  - capability: Service discovery
+    operations: [getServiceIndex]
+    spec: openapi/microsoft-net-serviceindex-api-openapi.yml
+  - capability: Package search
+    operations: [searchPackages]
+    spec: openapi/microsoft-net-search-api-openapi.yml
+  - capability: Package metadata (registration)
+    operations: [getRegistrationIndex, getRegistrationLeaf]
+    spec: openapi/microsoft-net-registration-api-openapi.yml
+  - capability: Package content (flat container)
+    operations: [listPackageVersions, downloadPackage, downloadNuspec]
+    spec: openapi/microsoft-net-packagecontent-api-openapi.yml
+coverage:
+  tools_named: 3
+  tools_bound: 0
+  mcp_only: 3
+  mcp_tools_unenumerable: 1
+  rest_ops_total: 7
+  rest_ops_with_tool: 0

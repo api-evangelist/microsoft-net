@@ -1,0 +1,106 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core,
+  https://github.com/dotnet/core/blob/main/release-notes/README.md,
+  https://learn.microsoft.com/en-us/dotnet/core/compatibility/,
+  https://status.nuget.org/,
+  https://devblogs.microsoft.com/dotnet/custom-v2-odata-queries-will-be-deprecated-march-9-2021/
+versioning:
+  scheme: annual-major
+  current: '10.0.11'
+  docs: https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core
+  note: >-
+    A new major release of .NET ships every November. Even-numbered releases are Long Term Support
+    (LTS) and get three years of free support and patches; odd-numbered releases are Standard Term
+    Support (STS) and get two years. The NuGet Server API versions in the URL path (V2 legacy OData at
+    /api/v2, V3 at /v3) and is discovered from the service index at
+    https://api.nuget.org/v3/index.json rather than pinned by the client.
+release_cadence: annual (November), LTS on even majors
+support_policy:
+  url: https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core
+  last_updated: '2026-08-11'
+  governed_by: Microsoft Modern Lifecycle Policy
+  lts_years: 3
+  sts_years: 2
+supported_versions:
+  - version: .NET 10
+    released: '2025-11-11'
+    latest_patch: 10.0.11
+    patch_released: '2026-08-11'
+    release_type: LTS
+    phase: Active
+    end_of_support: '2028-11-14'
+  - version: .NET 9
+    released: '2024-11-12'
+    latest_patch: 9.0.19
+    patch_released: '2026-08-11'
+    release_type: STS
+    phase: Maintenance
+    end_of_support: '2026-11-10'
+  - version: .NET 8
+    released: '2023-11-14'
+    latest_patch: 8.0.30
+    patch_released: '2026-08-11'
+    release_type: LTS
+    phase: Maintenance
+    end_of_support: '2026-11-10'
+out_of_support_versions:
+  - {version: .NET 7, end_of_support: '2024-05-14'}
+  - {version: .NET 6, end_of_support: '2024-11-12'}
+  - {version: .NET 5, end_of_support: '2022-05-10'}
+  - {version: .NET Core 3.1, end_of_support: '2022-12-13'}
+  - {version: .NET Core 3.0, end_of_support: '2020-03-03'}
+  - {version: .NET Core 2.2, end_of_support: '2019-12-23'}
+  - {version: .NET Core 2.1, end_of_support: '2021-08-21'}
+  - {version: .NET Core 2.0, end_of_support: '2018-10-01'}
+  - {version: .NET Core 1.1, end_of_support: '2019-06-27'}
+  - {version: .NET Core 1.0, end_of_support: '2019-06-27'}
+deprecation:
+  policy_url: https://learn.microsoft.com/en-us/dotnet/core/compatibility/
+  sunset_header: false
+  note: >-
+    .NET publishes a per-release breaking-change catalogue at learn.microsoft.com/dotnet/core/compatibility,
+    organized by version and area, plus obsoletion diagnostics (SYSLIBxxxx) that surface deprecations at
+    compile time rather than at runtime. The NuGet Server API does not emit RFC 8594 Sunset or
+    Deprecation headers; API-level deprecation is announced on the .NET blog and signalled in-band by an
+    OData error code (see api_deprecations below).
+api_deprecations:
+  - surface: NuGet V2 OData custom queries
+    endpoint: https://www.nuget.org/api/v2/Packages
+    announced: '2020-12-02'
+    effective: '2021-03-09'
+    signal:
+      http_status: 400
+      error_code: NuGet.V2.Deprecated
+      body_format: application/xml (OData m:error)
+      more_info: https://aka.ms/nuget/odata-deprecation
+    verified:
+      method: probed
+      date: '2026-08-29'
+      request: 'GET https://www.nuget.org/api/v2/Packages?$top=1'
+      observed_status: 400
+      observed_code: NuGet.V2.Deprecated
+    migration: >-
+      Move to the V3 API discovered from https://api.nuget.org/v3/index.json. The scoped V2 queries the
+      official client (nuget.exe) makes remain supported; only arbitrary third-party OData query shapes
+      were blocked.
+    announcement: https://devblogs.microsoft.com/dotnet/custom-v2-odata-queries-will-be-deprecated-march-9-2021/
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No published uptime SLA for the public nuget.org API. .NET itself is a free, open-source platform
+    with no service-level agreement; commercial support runs through Microsoft Unified/Premier support
+    contracts rather than a per-API SLA.
+status_page: https://status.nuget.org/
+status_page_verified:
+  url: https://status.nuget.org/
+  http_status: 200
+  date: '2026-08-29'
+release_notes: https://github.com/dotnet/core/blob/main/release-notes/README.md
+roadmap: https://github.com/dotnet/core/blob/main/roadmap.md
+deprecated_operations: []
+deprecated_operations_note: >-
+  No operation in openapi/ carries `deprecated: true`. The deprecated surface (V2 OData) is not modelled
+  in these specs, which describe V3 only.

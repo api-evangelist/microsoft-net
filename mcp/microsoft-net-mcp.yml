@@ -1,0 +1,104 @@
+generated: '2026-08-29'
+method: searched
+status: published
+source: >-
+  https://learn.microsoft.com/en-us/nuget/concepts/nuget-mcp-server,
+  https://registry.modelcontextprotocol.io/v0/servers?search=nuget,
+  live tools/list POST to https://learn.microsoft.com/api/mcp
+deployment:
+  mode: both
+  endpoint: https://learn.microsoft.com/api/mcp
+  install: dnx NuGet.Mcp.Server --source https://api.nuget.org/v3/index.json --yes
+  package: https://www.nuget.org/packages/NuGet.Mcp.Server
+  auth: none
+  verified: probed
+note: >-
+  Two distinct first-party Microsoft MCP servers touch this surface and they are NOT the same product.
+  (1) The NuGet MCP Server is local-stdio only: it is a NuGet tool package launched with the .NET 10
+  `dnx` command, so a human must install .NET 10 and run it before any agent can reach it. (2) The
+  Microsoft Learn Docs MCP Server is a remote streamable-HTTP endpoint an MCP client can POST to right
+  now with no credential — verified by an anonymous tools/list on 2026-08-29 that returned three tools
+  with real inputSchemas. The Learn server is Microsoft-wide (it indexes all of Microsoft Learn, not
+  just .NET), and learn.microsoft.com is already the documentation and humanURL host for every API
+  entry in this profile, which is why it is recorded here; it is not a .NET-exclusive surface.
+servers:
+  - name: nuget
+    title: Microsoft NuGet
+    transport: stdio
+    mode: local-stdio
+    package: NuGet.Mcp.Server
+    package_version: 1.4.16
+    registry_id: com.microsoft/nuget
+    registry_url: https://registry.modelcontextprotocol.io/v0/servers?search=nuget
+    repository: https://github.com/NuGet/Home
+    repository_subfolder: mcp
+    docs: https://learn.microsoft.com/en-us/nuget/concepts/nuget-mcp-server
+    requires: .NET 10 SDK or later (provides the `dnx` command)
+    auth: none
+    config_verbatim: |
+      {
+        "servers": {
+          "nuget": {
+            "type": "stdio",
+            "command": "dnx",
+            "args": [ "NuGet.Mcp.Server", "--source", "https://api.nuget.org/v3/index.json", "--yes" ]
+          }
+        }
+      }
+    capabilities:
+      - Uses your configured NuGet feeds to get real-time information about packages.
+      - >-
+        Provides conservative remediation planning for packages with known vulnerabilities, including
+        transitive dependencies.
+      - Provides package upgrade planning based on a project's package graph and target frameworks.
+      - >-
+        Reviews your repository's NuGet supply-chain posture (Central Package Management, NuGet Audit,
+        Package Source Mapping, and NuGet.Config validity) and recommends hardening steps.
+    tools: []
+    tools_note: >-
+      Tool names and inputSchemas were NOT captured. The server is stdio-only and requires a .NET 10
+      SDK, which is not present on the probing machine, so `tools/list` could not be introspected and
+      no tool list is published in the docs or the MCP registry entry. The capabilities[] above are
+      quoted verbatim from the NuGet/Home mcp README; they are a capability statement, not a tool
+      manifest. Authenticated/local stdio introspection is required to enumerate the real tools.
+  - name: microsoft-learn-docs
+    title: Microsoft Learn Docs MCP Server
+    transport: streamable-http
+    mode: remote
+    url: https://learn.microsoft.com/api/mcp
+    repository: https://github.com/MicrosoftDocs/mcp
+    docs: https://learn.microsoft.com/en-us/training/support/mcp
+    auth: none
+    scope_note: >-
+      Microsoft-wide documentation server covering all of Microsoft Learn, including the .NET, ASP.NET
+      Core, .NET Aspire and NuGet documentation sets that are the humanURL for every API in this profile.
+    verified:
+      method: probed
+      date: '2026-08-29'
+      request: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+      http_status: 200
+      content_type: text/event-stream
+    tools:
+      - name: microsoft_docs_search
+        title: Microsoft Docs Search
+        description: >-
+          Search official Microsoft/Azure documentation to find the most relevant and trustworthy
+          content for a user's query. Returns up to 10 content chunks (each max 500 tokens) from
+          Microsoft Learn and other official sources.
+        input_schema_properties: [query]
+        annotations: {readOnlyHint: true, idempotentHint: true, destructiveHint: false}
+      - name: microsoft_code_sample_search
+        title: Microsoft Code Sample Search
+        description: >-
+          Search for code snippets and examples in official Microsoft Learn documentation. Optional
+          `language` filter accepts csharp, javascript, typescript, python, powershell, azurecli, al,
+          sql, java, kusto, cpp, go, rust, ruby, php.
+        input_schema_properties: [query, language]
+        annotations: {readOnlyHint: true, idempotentHint: true, destructiveHint: false}
+      - name: microsoft_docs_fetch
+        title: Microsoft Docs Fetch
+        description: >-
+          Fetch the full content of a Microsoft Learn documentation page identified by URL, the
+          follow-up to microsoft_docs_search when a high-value page is identified.
+        input_schema_properties: [url]
+        annotations: {readOnlyHint: true, idempotentHint: true, destructiveHint: false}

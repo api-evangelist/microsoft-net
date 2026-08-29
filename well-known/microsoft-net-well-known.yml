@@ -1,0 +1,83 @@
+generated: '2026-08-29'
+method: searched
+source: live HTTP probes of every apis.yml and OpenAPI servers[] host
+note: >-
+  Only one real /.well-known/ document is served across the Microsoft .NET surface: the RFC 9116
+  security.txt on www.microsoft.com, which is the MSRC disclosure policy governing .NET, ASP.NET Core
+  and nuget.org alongside every other Microsoft product. api.nuget.org is fronted by Azure Blob
+  Storage and answers HTTP 400 (OutOfRangeInput) for every /.well-known/ path rather than 404.
+  A soft-404 control probe against www.microsoft.com/.well-known/apievangelist-control-probe-xyz
+  returned 404 with a 784,306-byte HTML body, confirming the 404s above are genuine misses and the
+  security.txt 200 is a genuine hit, not a catch-all.
+hit_count: 1
+hosts:
+  - host: https://www.microsoft.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: microsoft-net-security.txt
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://api.nuget.org
+    documents:
+      - path: /.well-known/security.txt
+        status: 400
+      - path: /.well-known/openid-configuration
+        status: 400
+      - path: /.well-known/oauth-authorization-server
+        status: 400
+      - path: /.well-known/api-catalog
+        status: 400
+      - path: /.well-known/ai-plugin.json
+        status: 400
+  - host: https://www.nuget.org
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://dotnet.microsoft.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://learn.microsoft.com
+    documents:
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 302
+soft_404_control:
+  url: https://www.microsoft.com/.well-known/apievangelist-control-probe-xyz
+  status: 404
+  bytes: 784306
+  verdict: no catch-all; 404s are genuine
+catalog_equivalent:
+  note: >-
+    NuGet publishes a machine-readable service catalogue, but NOT at a /.well-known/ path, so it does
+    not count as a well-known document. The V3 service index at https://api.nuget.org/v3/index.json
+    enumerates every resource type on the source (SearchQueryService, RegistrationsBaseUrl,
+    PackageBaseAddress, PackagePublish, SymbolPackagePublish, Catalog, VulnerabilityInfo,
+    RepositorySignatures, ReportAbuseUriTemplate, ReadmeUriTemplate). Saved verbatim for reference.
+  url: https://api.nuget.org/v3/index.json
+  status: 200
+  file: microsoft-net-nuget-service-index.json

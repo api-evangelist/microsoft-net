@@ -1,0 +1,159 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://learn.microsoft.com/en-us/nuget/api/overview,
+  https://learn.microsoft.com/en-us/nuget/api/package-publish-resource,
+  https://learn.microsoft.com/en-us/nuget/api/rate-limits,
+  https://learn.microsoft.com/en-us/nuget/nuget-org/policies/deleting-packages,
+  https://learn.microsoft.com/en-us/nuget/api/service-index,
+  openapi/microsoft-net-*-openapi.yml
+scope_note: >-
+  These conventions describe the NuGet Server API (V3) — the only callable HTTP surface in this profile.
+  The other apis[] entries (.NET API Browser, .NET CLI, ASP.NET Core Web API, .NET Aspire) are a
+  documentation browser, a command-line tool and two frameworks; they have no HTTP request/response
+  semantics of their own.
+service_discovery:
+  style: service-index
+  entry_point: https://api.nuget.org/v3/index.json
+  note: >-
+    The single most important convention on this API: a client is NOT supposed to hardcode resource
+    URLs. It GETs the service index, reads resources[] and picks the @id whose @type matches the
+    versioned resource it needs (SearchQueryService/3.5.0, RegistrationsBaseUrl/3.6.0,
+    PackageBaseAddress/3.0.0, PackagePublish/2.0.0, Catalog/3.0.0, VulnerabilityInfo/6.7.0,
+    RepositorySignatures/5.0.0, SymbolPackagePublish/4.9.0). This is how the same client code works
+    against nuget.org, Azure Artifacts, GitHub Packages, Artifactory, ProGet and Nexus unchanged.
+authentication:
+  style: api-key-header
+  header: X-NuGet-ApiKey
+  applies_to: write operations only (push, unlist/delete, relist, symbol push)
+  read_access: fully anonymous — no credential of any kind on any read path
+  docs: https://learn.microsoft.com/en-us/nuget/api/package-publish-resource
+  detail: authentication/microsoft-net-authentication.yml
+case_sensitivity:
+  rule: >-
+    Package IDs and versions MUST be lowercased in registration and flat-container URL paths, and
+    versions must be normalized. This is the single most common source of a spurious 404 on this API.
+  docs: https://learn.microsoft.com/en-us/nuget/api/registration-base-url-resource
+pagination:
+  style: offset
+  params: [skip, take]
+  defaults: {skip: 0, take: 20}
+  response_fields: [totalHits, data]
+  cursor: false
+  source: openapi/microsoft-net-search-api-openapi.yml
+  note: >-
+    The Catalog resource (Catalog/3.0.0) paginates differently — it is an append-only, timestamp-ordered
+    change feed walked by page rather than by offset, and is the intended mechanism for enumerating
+    every package on a source.
+field_expansion:
+  supported: false
+sparse_fields:
+  supported: false
+metadata:
+  supported: false
+  note: Package metadata is fixed by the .nuspec; there is no arbitrary key/value metadata bag.
+request_tracing:
+  request_id_header: null
+  note: No documented correlation/request-id header on the public API.
+versioning:
+  style: uri-path plus typed resource versions
+  current: v3
+  legacy: v2 (OData, partially deprecated — see lifecycle/)
+  note: >-
+    Two-layer versioning. The protocol version is in the path (/v3), and each individual resource
+    additionally carries its own @type version in the service index, so a source can advertise
+    RegistrationsBaseUrl/3.0.0-rc, /3.4.0 and /3.6.0 side by side and a client selects the newest it
+    understands. That is unusually granular and is why V3 has evolved for a decade without a V4.
+error_envelope:
+  format: bare-status
+  v3_throttle: '{ "statusCode": <int>, "message": "<string>" }'
+  v2_odata: '<m:error><m:code>..</m:code><m:message/></m:error>'
+  problem_json: false
+  detail: errors/microsoft-net-problem-types.yml
+rate_limit_signaling:
+  headers: []
+  status_codes: {throttled: 429, quota_exceeded: 403}
+  note: >-
+    No RateLimit-* / X-RateLimit-* / Retry-After headers are documented. The wait is carried in the
+    409/429 message BODY as prose ("Try again in 56 seconds"), which an agent must parse out of a
+    string rather than read from a header. This is a real agent-readiness gap.
+  detail: rate-limits/microsoft-net-rate-limits.yml
+idempotency:
+  key_header: null
+  key_param: null
+  supported: false
+  assessment: >-
+    NuGet publishes NO client-supplied idempotency key — there is no Idempotency-Key header or
+    parameter anywhere in the docs or in openapi/. No Idempotency pointer is emitted for this provider
+    for that reason. What it does have is per-operation semantics worth recording: every read is a
+    plain GET and naturally idempotent; RELIST is explicitly idempotent, because the docs state "If
+    the package is already listed, the request still succeeds"; PUSH is at-most-once by version
+    immutability rather than by key, because "If the package with the provided ID and version already
+    exists, nuget.org will reject the push" with HTTP 409. A retried push therefore cannot create a
+    duplicate, but a client cannot distinguish its own successful first attempt from someone else's
+    prior publish using the response alone.
+  operations:
+    - {operation: push, method: PUT, idempotent: false, duplicate_response: 409, mechanism: version immutability}
+    - {operation: relist, method: POST, idempotent: true, mechanism: documented no-op when already listed}
+    - {operation: unlist, method: DELETE, idempotent: unstated, missing_response: 404}
+    - {operation: reads, method: GET, idempotent: true, mechanism: safe method}
+dry_run_mode:
+  supported: false
+  note: >-
+    No dry-run or validate-only flag on push. The published rehearsal mechanism is a separate
+    environment rather than a flag — see sandbox/microsoft-net-sandbox.yml (int.nugettest.org).
+reversibility:
+  grade: documented
+  grade_basis: >-
+    A real reversal operation is published for the destructive path (relist reverses unlist, same URL,
+    POST instead of DELETE), but NO time window is stated anywhere in the docs for how long a package
+    may be relisted, so this does not reach `verified`. Never inferred a window that Microsoft does not
+    print.
+  write_surface_note: >-
+    The write surface is documented but is NOT present in openapi/ — the harvested spec declares a
+    Publish tag and then carries no Publish paths, so all 7 modelled operations are reads. The
+    reversibility analysis below is read from the docs, not from the contract, and closing that gap is
+    worth raising with the provider.
+  operations:
+    - action: Unlist a package version
+      operation: 'DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}'
+      operationId: null
+      reversal: Relist
+      reversal_operation: 'POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}'
+      window: null
+      window_stated: false
+      docs: https://learn.microsoft.com/en-us/nuget/api/package-publish-resource
+      note: >-
+        On nuget.org a DELETE is interpreted as an unlist, not a hard delete — existing consumers can
+        still restore the exact version. Other NuGet server implementations are free to treat the same
+        request as a hard delete, so the reversibility of this call depends on which source you are
+        pointed at.
+    - action: Push a package version
+      operation: 'PUT https://www.nuget.org/api/v2/package'
+      operationId: null
+      reversal: none (unlist only — permanent deletion is not supported)
+      reversal_operation: 'DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}'
+      window: null
+      window_stated: false
+      docs: https://learn.microsoft.com/en-us/nuget/nuget-org/policies/deleting-packages
+      note: >-
+        The docs are unambiguous: "nuget.org does not support permanent deletion of packages." A push
+        is therefore effectively permanent — the strongest reversibility fact on this API and the one
+        an agent most needs before it acts. Unlisting hides a version from search but it remains
+        downloadable by exact version, still resolves under floating version constraints, and still
+        appears in the catalog change feed. Deletion happens only by manual NuGet-team intervention for
+        copyright infringement or harmful content.
+    - action: Deprecate a package version
+      operation: nuget.org web UI (no public API endpoint documented)
+      reversal: undeprecate (same UI)
+      window: null
+      window_stated: false
+      docs: https://learn.microsoft.com/en-us/nuget/nuget-org/deprecate-packages
+      note: The softer alternative to unlisting; adds an advisory message without hiding the version.
+cross_links:
+  errors: errors/microsoft-net-problem-types.yml
+  lifecycle: lifecycle/microsoft-net-lifecycle.yml
+  authentication: authentication/microsoft-net-authentication.yml
+  rate_limits: rate-limits/microsoft-net-rate-limits.yml
+  sandbox: sandbox/microsoft-net-sandbox.yml
+  conformance: conformance/microsoft-net-conformance.yml

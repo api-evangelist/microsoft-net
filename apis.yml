@@ -36,7 +36,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-
 url: >-
   https://raw.githubusercontent.com/api-evangelist/microsoft-net/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-04-18'
+modified: '2026-08-29'
 specificationVersion: '0.23'
 tags:
   - .NET
@@ -157,8 +157,8 @@ apis:
 - aid: microsoft-net:microsoft-net-packagecontent-api
   name: Microsoft .NET PackageContent API
   description: The PackageContent API from Microsoft .NET — 3 operation(s) for packagecontent.
-  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
-  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3
   tags:
   - PackageContent
   properties:
@@ -167,8 +167,8 @@ apis:
 - aid: microsoft-net:microsoft-net-registration-api
   name: Microsoft .NET Registration API
   description: The Registration API from Microsoft .NET — 2 operation(s) for registration.
-  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
-  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3
   tags:
   - Registration
   properties:
@@ -177,8 +177,8 @@ apis:
 - aid: microsoft-net:microsoft-net-search-api
   name: Microsoft .NET Search API
   description: The Search API from Microsoft .NET — 1 operation(s) for search.
-  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
-  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3
   tags:
   - Search
   properties:
@@ -187,14 +187,78 @@ apis:
 - aid: microsoft-net:microsoft-net-serviceindex-api
   name: Microsoft .NET ServiceIndex API
   description: The ServiceIndex API from Microsoft .NET — 1 operation(s) for serviceindex.
-  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
-  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3
   tags:
   - ServiceIndex
   properties:
   - type: OpenAPI
     url: openapi/microsoft-net-serviceindex-api-openapi.yml
 common:
+  - type: Website
+    url: https://dotnet.microsoft.com/
+  - type: Packages
+    url: packages/microsoft-net-packages.yml
+  - type: WellKnown
+    url: well-known/microsoft-net-well-known.yml
+  - type: SecurityTxt
+    url: well-known/microsoft-net-security.txt
+  - type: Security
+    url: https://www.microsoft.com/en-us/msrc/cvd
+  - type: TrustCenter
+    url: security/microsoft-net-trust-center.yml
+  - type: Compliance
+    url: https://www.microsoft.com/en-us/trust-center
+  - type: MCPServer
+    url: mcp/microsoft-net-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/microsoft-net-tool-crosswalk.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: LLMsTxt
+    url: llms/microsoft-net-llms.txt
+  - type: Conformance
+    url: conformance/microsoft-net-conformance.yml
+  - type: ErrorCatalog
+    url: errors/microsoft-net-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/microsoft-net-lifecycle.yml
+  - type: StatusPage
+    url: https://status.nuget.org/
+  - type: Deprecation
+    url: https://learn.microsoft.com/en-us/dotnet/core/compatibility/
+  - type: Conventions
+    url: conventions/microsoft-net-conventions.yml
+  - type: ChangeLog
+    url: changelog/microsoft-net-changelog.yml
+  - type: CLI
+    url: cli/microsoft-net-cli.yml
+  - type: Sandbox
+    url: sandbox/microsoft-net-sandbox.yml
+  - type: DataModel
+    url: data-model/microsoft-net-data-model.yml
+  - type: RateLimits
+    url: rate-limits/microsoft-net-rate-limits.yml
+  - type: Plans
+    url: plans/microsoft-net-plans-pricing.yml
+  - type: FinOps
+    url: finops/microsoft-net-finops.yml
+  - type: Overlay
+    url: overlays/microsoft-net-search-overlay.yaml
+  - type: Overlay
+    url: overlays/microsoft-net-serviceindex-overlay.yaml
+  - type: Overlay
+    url: overlays/microsoft-net-registration-overlay.yaml
+  - type: Overlay
+    url: overlays/microsoft-net-packagecontent-overlay.yaml
+  - type: APIReference
+    url: https://learn.microsoft.com/en-us/dotnet/api/
+  - type: Roadmap
+    url: https://github.com/dotnet/core/blob/main/roadmap.md
+  - type: SignUp
+    url: https://www.nuget.org/users/account/LogOn
+  - type: Community
+    url: https://dotnet.microsoft.com/en-us/platform/community
   - type: AgenticAccess
     url: agentic-access/microsoft-net-agentic-access.yml
   - type: VulnerabilityDisclosure
@@ -275,3 +339,10 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
     url: https://apievangelist.com
+x-enrichment:
+  date: '2026-08-29'
+  status: enriched
+  artifacts_added: 26
+  pass: local-v1
+x-parent: microsoft
+x-relationship: product

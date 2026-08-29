@@ -1,0 +1,348 @@
+generated: '2026-08-29'
+method: searched
+source: https://github.com/dotnet/core/blob/main/release-notes/README.md
+machine_readable_source: https://raw.githubusercontent.com/dotnet/core/main/release-notes/releases-index.json
+note: .NET publishes its changelog as machine-readable JSON, not only as prose. releases-index.json enumerates
+  every channel with its latest release, support phase and EOL date, and each channel has a releases.json
+  carrying every servicing release with its date, CVE list and a link to the per-release markdown notes.
+  That is a rare and genuinely agent-readable release feed. Entries below are the recent window (up to
+  6 servicing releases per active channel), read 2026-08-29. Breaking changes are tracked separately at
+  learn.microsoft.com/dotnet/core/compatibility and are not carried in this feed, so breaking is recorded
+  false rather than guessed.
+scheme: semver, annual major in November; even majors LTS (3 yrs), odd majors STS (2 yrs)
+current_version: 10.0.11
+current_channel: '10.0'
+breaking_changes_reference: https://learn.microsoft.com/en-us/dotnet/core/compatibility/
+channels:
+- channel: '11.0'
+  latest: 11.0.0-preview.7
+  date: '2026-08-11'
+  release_type: sts
+  support_phase: preview
+  eol: null
+- channel: '10.0'
+  latest: 10.0.11
+  date: '2026-08-11'
+  release_type: lts
+  support_phase: active
+  eol: '2028-11-14'
+- channel: '9.0'
+  latest: 9.0.19
+  date: '2026-08-11'
+  release_type: sts
+  support_phase: maintenance
+  eol: '2026-11-10'
+- channel: '8.0'
+  latest: 8.0.30
+  date: '2026-08-11'
+  release_type: lts
+  support_phase: maintenance
+  eol: '2026-11-10'
+- channel: '7.0'
+  latest: 7.0.20
+  date: '2024-05-28'
+  release_type: sts
+  support_phase: eol
+  eol: '2024-05-14'
+- channel: '6.0'
+  latest: 6.0.36
+  date: '2024-11-12'
+  release_type: lts
+  support_phase: eol
+  eol: '2024-11-12'
+entries:
+- channel: '9.0'
+  version: 9.0.19
+  date: '2026-08-11'
+  type: security
+  breaking: false
+  cve_count: 10
+  cves:
+  - CVE-2026-62898
+  - CVE-2026-62899
+  - CVE-2026-62900
+  - CVE-2026-62901
+  - CVE-2026-62886
+  - CVE-2026-62871
+  - CVE-2026-70354
+  - CVE-2026-62902
+  - CVE-2026-62897
+  - CVE-2026-62909
+  notes: https://github.com/dotnet/core/blob/main/release-notes/9.0/9.0.19/9.0.19.md
+- channel: '8.0'
+  version: 8.0.30
+  date: '2026-08-11'
+  type: security
+  breaking: false
+  cve_count: 10
+  cves:
+  - CVE-2026-62898
+  - CVE-2026-62899
+  - CVE-2026-62900
+  - CVE-2026-62901
+  - CVE-2026-62886
+  - CVE-2026-62871
+  - CVE-2026-70354
+  - CVE-2026-62902
+  - CVE-2026-62897
+  - CVE-2026-62909
+  notes: https://github.com/dotnet/core/blob/main/release-notes/8.0/8.0.30/8.0.30.md
+- channel: '11.0'
+  version: 11.0.0-preview.7
+  date: '2026-08-11'
+  type: servicing
+  breaking: false
+  cve_count: 0
+  cves: []
+  notes: https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview7/11.0.0-preview.7.md
+- channel: '10.0'
+  version: 10.0.11
+  date: '2026-08-11'
+  type: security
+  breaking: false
+  cve_count: 10
+  cves:
+  - CVE-2026-62898
+  - CVE-2026-62899
+  - CVE-2026-62900
+  - CVE-2026-62901
+  - CVE-2026-62886
+  - CVE-2026-62871
+  - CVE-2026-70354
+  - CVE-2026-62902
+  - CVE-2026-62897
+  - CVE-2026-62909
+  notes: https://github.com/dotnet/core/blob/main/release-notes/10.0/10.0.11/10.0.11.md
+- channel: '9.0'
+  version: 9.0.18
+  date: '2026-07-14'
+  type: security
+  breaking: false
+  cve_count: 17
+  cves:
+  - CVE-2026-50651
+  - CVE-2026-50526
+  - CVE-2026-50524
+  - CVE-2026-50646
+  - CVE-2026-50649
+  - CVE-2026-50650
+  - CVE-2026-56158
+  - CVE-2026-47302
+  - CVE-2026-50648
+  - CVE-2026-50527
+  - CVE-2026-47304
+  - CVE-2026-50525
+  notes: https://github.com/dotnet/core/blob/main/release-notes/9.0/9.0.18/9.0.18.md
+- channel: '8.0'
+  version: 8.0.29
+  date: '2026-07-14'
+  type: security
+  breaking: false
+  cve_count: 17
+  cves:
+  - CVE-2026-50651
+  - CVE-2026-50526
+  - CVE-2026-50524
+  - CVE-2026-50646
+  - CVE-2026-50649
+  - CVE-2026-50650
+  - CVE-2026-56158
+  - CVE-2026-47302
+  - CVE-2026-50648
+  - CVE-2026-50527
+  - CVE-2026-47304
+  - CVE-2026-50525
+  notes: https://github.com/dotnet/core/blob/main/release-notes/8.0/8.0.29/8.0.29.md
+- channel: '11.0'
+  version: 11.0.0-preview.6
+  date: '2026-07-14'
+  type: servicing
+  breaking: false
+  cve_count: 0
+  cves: []
+  notes: https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview6/11.0.0-preview.6.md
+- channel: '10.0'
+  version: 10.0.10
+  date: '2026-07-14'
+  type: security
+  breaking: false
+  cve_count: 17
+  cves:
+  - CVE-2026-50651
+  - CVE-2026-50526
+  - CVE-2026-50524
+  - CVE-2026-50646
+  - CVE-2026-50649
+  - CVE-2026-50650
+  - CVE-2026-56158
+  - CVE-2026-47302
+  - CVE-2026-50648
+  - CVE-2026-50527
+  - CVE-2026-47304
+  - CVE-2026-50525
+  notes: https://github.com/dotnet/core/blob/main/release-notes/10.0/10.0.10/10.0.10.md
+- channel: '9.0'
+  version: 9.0.17
+  date: '2026-06-09'
+  type: security
+  breaking: false
+  cve_count: 3
+  cves:
+  - CVE-2026-45591
+  - CVE-2026-45491
+  - CVE-2026-45490
+  notes: https://github.com/dotnet/core/blob/main/release-notes/9.0/9.0.17/9.0.17.md
+- channel: '8.0'
+  version: 8.0.28
+  date: '2026-06-09'
+  type: security
+  breaking: false
+  cve_count: 3
+  cves:
+  - CVE-2026-45591
+  - CVE-2026-45491
+  - CVE-2026-45490
+  notes: https://github.com/dotnet/core/blob/main/release-notes/8.0/8.0.28/8.0.28.md
+- channel: '11.0'
+  version: 11.0.0-preview.5
+  date: '2026-06-09'
+  type: servicing
+  breaking: false
+  cve_count: 0
+  cves: []
+  notes: https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview5/11.0.0-preview.5.md
+- channel: '10.0'
+  version: 10.0.9
+  date: '2026-06-09'
+  type: security
+  breaking: false
+  cve_count: 3
+  cves:
+  - CVE-2026-45591
+  - CVE-2026-45491
+  - CVE-2026-45490
+  notes: https://github.com/dotnet/core/blob/main/release-notes/10.0/10.0.9/10.0.9.md
+- channel: '9.0'
+  version: 9.0.16
+  date: '2026-05-12'
+  type: security
+  breaking: false
+  cve_count: 4
+  cves:
+  - CVE-2026-32177
+  - CVE-2026-35433
+  - CVE-2026-32175
+  - CVE-2026-42899
+  notes: https://github.com/dotnet/core/blob/main/release-notes/9.0/9.0.16/9.0.16.md
+- channel: '8.0'
+  version: 8.0.27
+  date: '2026-05-12'
+  type: security
+  breaking: false
+  cve_count: 4
+  cves:
+  - CVE-2026-32177
+  - CVE-2026-35433
+  - CVE-2026-32175
+  - CVE-2026-42899
+  notes: https://github.com/dotnet/core/blob/main/release-notes/8.0/8.0.27/8.0.27.md
+- channel: '11.0'
+  version: 11.0.0-preview.4
+  date: '2026-05-12'
+  type: servicing
+  breaking: false
+  cve_count: 0
+  cves: []
+  notes: https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview4/11.0.0-preview.4.md
+- channel: '10.0'
+  version: 10.0.8
+  date: '2026-05-12'
+  type: security
+  breaking: false
+  cve_count: 4
+  cves:
+  - CVE-2026-32177
+  - CVE-2026-35433
+  - CVE-2026-32175
+  - CVE-2026-42899
+  notes: https://github.com/dotnet/core/blob/main/release-notes/10.0/10.0.8/10.0.8.md
+- channel: '10.0'
+  version: 10.0.7
+  date: '2026-04-21'
+  type: security
+  breaking: false
+  cve_count: 1
+  cves:
+  - CVE-2026-40372
+  notes: https://github.com/dotnet/core/blob/main/release-notes/10.0/10.0.7/10.0.7.md
+- channel: '9.0'
+  version: 9.0.15
+  date: '2026-04-14'
+  type: security
+  breaking: false
+  cve_count: 4
+  cves:
+  - CVE-2026-26171
+  - CVE-2026-32203
+  - CVE-2026-33116
+  - CVE-2026-32178
+  notes: https://github.com/dotnet/core/blob/main/release-notes/9.0/9.0.15/9.0.15.md
+- channel: '8.0'
+  version: 8.0.26
+  date: '2026-04-14'
+  type: security
+  breaking: false
+  cve_count: 4
+  cves:
+  - CVE-2026-26171
+  - CVE-2026-32203
+  - CVE-2026-33116
+  - CVE-2026-32178
+  notes: https://github.com/dotnet/core/blob/main/release-notes/8.0/8.0.26/8.0.26.md
+- channel: '11.0'
+  version: 11.0.0-preview.3
+  date: '2026-04-14'
+  type: servicing
+  breaking: false
+  cve_count: 0
+  cves: []
+  notes: https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview3/11.0.0-preview.3.md
+- channel: '10.0'
+  version: 10.0.6
+  date: '2026-04-14'
+  type: security
+  breaking: false
+  cve_count: 4
+  cves:
+  - CVE-2026-26171
+  - CVE-2026-32203
+  - CVE-2026-33116
+  - CVE-2026-32178
+  notes: https://github.com/dotnet/core/blob/main/release-notes/10.0/10.0.6/10.0.6.md
+- channel: '9.0'
+  version: 9.0.14
+  date: '2026-03-10'
+  type: security
+  breaking: false
+  cve_count: 2
+  cves:
+  - CVE-2026-26130
+  - CVE-2026-26127
+  notes: https://github.com/dotnet/core/blob/main/release-notes/9.0/9.0.14/9.0.14.md
+- channel: '8.0'
+  version: 8.0.25
+  date: '2026-03-10'
+  type: security
+  breaking: false
+  cve_count: 1
+  cves:
+  - CVE-2026-26130
+  notes: https://github.com/dotnet/core/blob/main/release-notes/8.0/8.0.25/8.0.25.md
+- channel: '11.0'
+  version: 11.0.0-preview.2
+  date: '2026-03-10'
+  type: servicing
+  breaking: false
+  cve_count: 0
+  cves: []
+  notes: https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview2/11.0.0-preview.2.md

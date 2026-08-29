@@ -1,0 +1,49 @@
+generated: '2026-08-29'
+method: probed
+source: >-
+  https://devblogs.microsoft.com/dotnet/custom-v2-odata-queries-will-be-deprecated-march-9-2021/,
+  live probe of https://apiint.nugettest.org/v3/index.json and https://int.nugettest.org/
+note: >-
+  NuGet publishes a genuinely separate pre-production environment rather than a test mode on the
+  production host. It is a full parallel gallery with its own accounts, its own API keys and its own V3
+  service index, so a push there can never touch nuget.org. There are no magic test values, test cards
+  or test clocks — the unit of test data is a real .nupkg you push to a throwaway gallery.
+environments:
+  - name: int (integration / pre-production)
+    gallery: https://int.nugettest.org/
+    api_base: https://apiint.nugettest.org/v3/index.json
+    verified:
+      method: probed
+      date: '2026-08-29'
+      gallery_status: 200
+      service_index_status: 200
+      service_index_version: 3.0.0
+      observed_resource_host: https://azuresearch-usnc.int.nugettest.org/
+    purpose: >-
+      Named in the NuGet team's own deprecation announcement as the environment "that has affected
+      endpoints disabled" for testing migration off deprecated V2 OData queries.
+    accounts: Separate registration; nuget.org credentials and API keys do NOT work here.
+    isolation: complete — separate gallery, separate storage, separate search cluster
+test_vs_live:
+  key_prefixes: null
+  mode_flag: null
+  separation: by host — production api.nuget.org/www.nuget.org vs pre-production apiint.nugettest.org/int.nugettest.org
+  note: >-
+    Unlike key-prefixed sandboxes (sk_test_ / sk_live_), a NuGet API key carries no visible test/live
+    marker. The only thing separating a test push from a real one is which --source the client was
+    pointed at, which makes the source URL the entire safety boundary. An agent pushing packages should
+    treat the --source argument as the single highest-consequence parameter in the call.
+test_values: []
+test_clocks:
+  supported: false
+fixtures_and_triggers:
+  supported: false
+local_alternatives:
+  - name: Local folder feed
+    description: >-
+      Any directory can be a package source (dotnet nuget add source ./local-packages), giving a fully
+      offline rehearsal surface with no network calls at all.
+    docs: https://learn.microsoft.com/en-us/nuget/hosting-packages/local-feeds
+  - name: NuGet.Server / BaGet-style self-hosted source
+    description: A self-hosted V2/V3 source for testing publish flows against your own gallery.
+    docs: https://learn.microsoft.com/en-us/nuget/hosting-packages/overview

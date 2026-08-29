@@ -1,0 +1,32 @@
+generated: '2026-08-29'
+method: searched
+probe: true
+url: https://www.microsoft.com/en-us/trust-center
+certifications:
+  - SOC 1
+  - SOC 2
+  - ISO/IEC 27001
+  - ISO/IEC 27018
+  - HIPAA
+  - FedRAMP
+  - GDPR
+scope_note: >-
+  Microsoft-wide trust centre. These certifications cover the Microsoft online services that operate the
+  callable surface in this profile (api.nuget.org, www.nuget.org, learn.microsoft.com); they are NOT a
+  certification of the .NET platform itself, which is MIT-licensed open-source software with no
+  product-level audit. Recorded with that scope stated rather than omitted, because the API a consumer
+  actually calls here is a Microsoft-operated service.
+service_trust_portal: https://servicetrust.microsoft.com/
+compliance_offerings: https://learn.microsoft.com/en-us/compliance/regulatory/offering-home
+evidence:
+  - source: https://www.microsoft.com/en-us/trust-center
+    http_status: 200
+    date: '2026-08-29'
+    keywords: [trust center, gdpr, privacy, compliance]
+  - source: https://learn.microsoft.com/en-us/compliance/regulatory/offering-home
+    http_status: 200
+    date: '2026-08-29'
+    keywords: [soc 1, soc 2, iso 27001, iso 27018, hipaa, fedramp, gdpr]
+  - source: https://servicetrust.microsoft.com/
+    http_status: 200
+    date: '2026-08-29'

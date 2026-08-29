@@ -1,0 +1,73 @@
+generated: '2026-08-29'
+method: derived
+source: >-
+  openapi/microsoft-net-*-openapi.yml (4xx responses), enriched from
+  https://learn.microsoft.com/en-us/nuget/api/rate-limits and a live probe of
+  https://www.nuget.org/api/v2/Packages
+format: bare-status
+format_note: >-
+  Not RFC 9457. No response in openapi/ declares application/problem+json. The NuGet V3 API answers with
+  a bare status code and, on the throttled paths, a small JSON object {statusCode, message}. The legacy
+  V2 OData surface answers with an OData m:error XML envelope carrying m:code and m:message. Two
+  different error envelopes on one provider is itself the finding.
+envelopes:
+  - name: nuget-v3-throttle
+    media_type: application/json
+    shape: '{ "statusCode": <int>, "message": "<string>" }'
+    example_verbatim: '{"statusCode": 429, "message": "Rate limit is exceeded. Try again in 56 seconds."}'
+    source: https://learn.microsoft.com/en-us/nuget/api/rate-limits
+  - name: nuget-v2-odata-error
+    media_type: application/xml
+    shape: '<m:error><m:code>..</m:code><m:message xml:lang="en-US">..</m:message></m:error>'
+    source: https://devblogs.microsoft.com/dotnet/custom-v2-odata-queries-will-be-deprecated-march-9-2021/
+problems:
+  - status: 404
+    title: Package not found
+    source_operation: openapi/microsoft-net-registration-api-openapi.yml#getRegistrationIndex
+    remediation: >-
+      Package IDs in registration and flat-container paths must be lowercased. A 404 most often means a
+      casing mistake or a package that was never published to this source.
+  - status: 404
+    title: Package not found
+    source_operation: openapi/microsoft-net-registration-api-openapi.yml#getRegistrationLeaf
+  - status: 404
+    title: Package not found
+    source_operation: openapi/microsoft-net-packagecontent-api-openapi.yml#listPackageVersions
+  - status: 404
+    title: Package or version not found
+    source_operation: openapi/microsoft-net-packagecontent-api-openapi.yml#downloadPackage
+    remediation: >-
+      Both the id and version segments must be lowercased and the version normalized before the .nupkg
+      filename is constructed.
+  - status: 404
+    title: Nuspec not found
+    source_operation: openapi/microsoft-net-packagecontent-api-openapi.yml#downloadNuspec
+  - status: 429
+    title: Rate limit exceeded
+    source: https://learn.microsoft.com/en-us/nuget/api/rate-limits
+    body: '{"statusCode": 429, "message": "Rate limit is exceeded. Try again in NN seconds."}'
+    remediation: >-
+      Back off for the number of seconds named in the message. Prefer the V3 search API, which the docs
+      state is not currently rate limited, over the V1/V2 search endpoints.
+  - status: 403
+    title: Quota exceeded
+    source: https://learn.microsoft.com/en-us/nuget/api/rate-limits
+    body: '{"statusCode": 403, "message": "Quota exceeded."}'
+    remediation: >-
+      Distinct from 429 throttling — a quota is a longer-window cap. Wait for the quota window to reset;
+      there is no published self-service quota increase.
+  - status: 400
+    title: Deprecated V2 OData query shape
+    code: NuGet.V2.Deprecated
+    source: https://aka.ms/nuget/odata-deprecation
+    verified:
+      method: probed
+      date: '2026-08-29'
+      request: 'GET https://www.nuget.org/api/v2/Packages?$top=1'
+      observed_status: 400
+    remediation: Migrate to the V3 API discovered from https://api.nuget.org/v3/index.json.
+gaps:
+  - >-
+    No error responses are declared for the 429/403/400 cases in openapi/ — they are documented in prose
+    only. The specs declare 200 and 404 and nothing else, so an agent reading the contract alone would
+    not know throttling exists. Worth raising with the provider.

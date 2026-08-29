@@ -1,0 +1,75 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://learn.microsoft.com/en-us/dotnet/core/tools/,
+  https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet,
+  https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference
+note: >-
+  Two first-party CLIs, and they are not the same tool. `dotnet` is the cross-platform .NET SDK CLI and
+  is the primary developer surface for the whole platform. `nuget.exe` is the older Windows-first NuGet
+  CLI, still supported for a small number of gallery operations the dotnet CLI does not cover.
+clis:
+  - name: dotnet
+    title: .NET SDK CLI
+    docs: https://learn.microsoft.com/en-us/dotnet/core/tools/
+    reference: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet
+    install:
+      - method: platform installer
+        url: https://dotnet.microsoft.com/download
+      - method: script
+        command: 'curl -sSL https://dot.net/v1/dotnet-install.sh | bash'
+      - method: homebrew
+        command: brew install --cask dotnet-sdk
+      - method: apt
+        url: https://learn.microsoft.com/en-us/dotnet/core/install/linux
+      - method: winget
+        command: winget install Microsoft.DotNet.SDK.10
+    command_groups:
+      - group: project and solution
+        commands: [new, sln, add, remove, list]
+      - group: build and run
+        commands: [build, run, clean, publish, watch, msbuild]
+      - group: test
+        commands: [test, vstest]
+      - group: packages
+        commands: [restore, package, nuget, add package, remove package, list package]
+      - group: tools
+        commands: [tool install, tool update, tool uninstall, tool list, tool run, dnx]
+      - group: sdk and diagnostics
+        commands: ['--info', '--version', '--list-sdks', '--list-runtimes', workload, sdk check]
+      - group: dev certificates
+        commands: [dev-certs https]
+      - group: user secrets
+        commands: [user-secrets set, user-secrets list]
+    key_flows:
+      - flow: Consume a package
+        steps: ['dotnet add package <Id>', 'dotnet restore', 'dotnet build']
+      - flow: Publish a package
+        steps: ['dotnet pack', 'dotnet nuget push <pkg>.nupkg --api-key <KEY> --source https://api.nuget.org/v3/index.json']
+      - flow: Point at a test gallery instead of production
+        steps: ['dotnet nuget push <pkg>.nupkg --api-key <KEY> --source https://apiint.nugettest.org/v3/index.json']
+      - flow: Run an MCP server from a NuGet package
+        steps: ['dnx NuGet.Mcp.Server --yes']
+        requires: .NET 10 SDK or later
+      - flow: Audit dependencies for known vulnerabilities
+        steps: ['dotnet list package --vulnerable --include-transitive']
+        note: Backed by the VulnerabilityInfo/6.7.0 resource in the V3 service index.
+    package: See packages/ — the SDK ships as a platform installer, not a registry package.
+  - name: nuget.exe
+    title: NuGet CLI
+    docs: https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference
+    install:
+      - method: direct download
+        url: https://www.nuget.org/downloads
+    command_groups:
+      - group: packages
+        commands: [pack, push, delete, restore, install, update, list, search]
+      - group: sources and config
+        commands: [sources, config, setapikey]
+      - group: signing
+        commands: [sign, verify, trusted-signers]
+      - group: symbols
+        commands: [push -Source symbols]
+    note: >-
+      `nuget delete` maps to the DELETE publish endpoint, which nuget.org interprets as an unlist, not
+      a hard delete — see conventions/ reversibility.
