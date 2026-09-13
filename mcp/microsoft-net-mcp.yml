@@ -104,3 +104,16 @@ servers:
       readOnlyHint: true
       idempotentHint: true
       destructiveHint: false
+tools_count: 3
+tools:
+- name: microsoft_docs_search
+  description: ''
+- name: microsoft_code_sample_search
+  description: ''
+- name: microsoft_docs_fetch
+  description: ''
+tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
+authorship: platform
+authorship_note: 'PLATFORM-AUTHORED: this tool shape is shared with at least one other provider in the
+  catalog, so it is a platform default appearing under this provider''s domain rather than an interface
+  this provider designed. Shared shape: (''microsoft_code_sample_*'', ''microsoft_docs_*'', ''microsoft_docs_fetch'')'
