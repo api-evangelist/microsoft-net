@@ -54,7 +54,9 @@ tags_raw:
 apis:
 - aid: microsoft-net:dotnet-api
   name: Microsoft .NET API Browser
-  description: Comprehensive reference for .NET APIs across all packages, namespaces, and types in the .NET ecosystem including .NET 9, .NET Standard, and .NET Framework.
+  description: >-
+    Comprehensive reference for .NET APIs across all packages, namespaces, and types in the .NET ecosystem
+    including .NET 9, .NET Standard, and .NET Framework.
   humanURL: https://learn.microsoft.com/en-us/dotnet/api/
   baseURL: https://learn.microsoft.com/en-us/dotnet/api/
   tags:
@@ -68,7 +70,9 @@ apis:
     url: https://learn.microsoft.com/en-us/dotnet/api/
 - aid: microsoft-net:nuget-api
   name: NuGet Server API
-  description: RESTful API for interacting with nuget.org and private NuGet feeds, supporting package search, download, push, delete, and metadata queries for .NET package management.
+  description: >-
+    RESTful API for interacting with nuget.org and private NuGet feeds, supporting package search, download,
+    push, delete, and metadata queries for .NET package management.
   humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
   baseURL: https://api.nuget.org/v3/
   tags:
@@ -82,10 +86,13 @@ apis:
   - type: APIReference
     url: https://learn.microsoft.com/en-us/nuget/api/overview
   - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio
+    url: >-
+      https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio
 - aid: microsoft-net:dotnet-cli
   name: .NET CLI
-  description: Cross-platform command-line interface for developing, building, running, and publishing .NET applications. Provides commands for project creation, package management, testing, and deployment.
+  description: >-
+    Cross-platform command-line interface for developing, building, running, and publishing .NET applications.
+    Provides commands for project creation, package management, testing, and deployment.
   humanURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
   baseURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
   tags:
@@ -105,7 +112,9 @@ apis:
     url: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet
 - aid: microsoft-net:aspnet-core-api
   name: ASP.NET Core Web API
-  description: Framework for building HTTP-based RESTful APIs and web services with ASP.NET Core, including controllers, minimal APIs, routing, model binding, authentication, and OpenAPI integration.
+  description: >-
+    Framework for building HTTP-based RESTful APIs and web services with ASP.NET Core, including controllers,
+    minimal APIs, routing, model binding, authentication, and OpenAPI integration.
   humanURL: https://learn.microsoft.com/en-us/aspnet/core/web-api/
   baseURL: https://learn.microsoft.com/en-us/aspnet/core/
   tags:
@@ -122,7 +131,9 @@ apis:
     url: https://learn.microsoft.com/en-us/aspnet/core/getting-started
 - aid: microsoft-net:dotnet-aspire
   name: .NET Aspire
-  description: Cloud-ready stack for building observable, production-ready distributed applications in .NET with built-in service discovery, health checks, telemetry, and configuration management.
+  description: >-
+    Cloud-ready stack for building observable, production-ready distributed applications in .NET with
+    built-in service discovery, health checks, telemetry, and configuration management.
   humanURL: https://learn.microsoft.com/en-us/dotnet/aspire/
   baseURL: https://learn.microsoft.com/en-us/dotnet/aspire/
   tags:
@@ -170,18 +181,11 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/microsoft-net-search-api-openapi.yml
-- aid: microsoft-net:microsoft-net-serviceindex-api
-  name: Microsoft .NET ServiceIndex API
-  description: The ServiceIndex API from Microsoft .NET — 1 operation(s) for serviceindex.
-  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
-  baseURL: https://api.nuget.org/v3
-  tags:
-  - ServiceIndex
-  properties:
-  - type: OpenAPI
-    url: openapi/microsoft-net-serviceindex-api-openapi.yml
 - name: .NET API Browser
-  description: Comprehensive reference documentation for all .NET APIs including the .NET Runtime, base class libraries, ASP.NET Core, Entity Framework, and Azure SDK libraries. Browse types, members, namespaces, and assemblies across supported .NET versions.
+  description: >-
+    Comprehensive reference documentation for all .NET APIs including the .NET Runtime, base class libraries,
+    ASP.NET Core, Entity Framework, and Azure SDK libraries. Browse types, members, namespaces, and assemblies
+    across supported .NET versions.
   image: https://www.microsoft.com/favicon.ico
   humanURL: https://learn.microsoft.com/en-us/dotnet/api/
   tags:
@@ -200,6 +204,16 @@ apis:
     url: https://dotnet.microsoft.com/en-us/download
   - type: ReleaseNotes
     url: https://learn.microsoft.com/en-us/dotnet/core/releases-and-support
+- aid: microsoft-net:microsoft-net-service-index-api
+  name: Microsoft .NET Service Index API
+  description: The Service Index API from Microsoft .NET — 1 operation(s) for service index.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  tags:
+  - Service Index
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-net-service-index-api-openapi.yml
 common:
 - type: Website
   url: https://dotnet.microsoft.com/
