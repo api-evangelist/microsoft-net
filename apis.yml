@@ -210,6 +210,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/dotnet/api/
   baseURL: https://learn.microsoft.com/en-us/dotnet/api/
   tags:
+  - ServiceIndex
+  tags_raw:
   - Service Index
   properties:
   - type: OpenAPI
