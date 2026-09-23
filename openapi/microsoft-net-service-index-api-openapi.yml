@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: NuGet Server API (V3) PackageContent Service Index API
+  title: NuGet Server API (V3) Service Index API
   description: The NuGet Server API is the set of HTTP endpoints used by the .NET CLI, NuGet client, Visual Studio, and other tooling to discover, download, publish, and unlist NuGet packages from nuget.org and compatible package sources. Entry point is the service index at /v3/index.json. Endpoints documented here cover discovery (service index), search, registration (package metadata), package base address (content), and publish.
   version: '3'
 servers:
@@ -8,12 +8,12 @@ servers:
   description: nuget.org V3 API root
 security: []
 tags:
-- name: ServiceIndex
+- name: Service Index
 paths:
   /index.json:
     get:
       tags:
-      - ServiceIndex
+      - Service Index
       summary: Get service index
       description: Returns the V3 service index describing the resources available on this package source (search, registration, package base address, publish, etc.).
       operationId: getServiceIndex
