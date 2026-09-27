@@ -42,7 +42,7 @@ tags:
 - Cross-Platform
 - Developer Tools
 - Microsoft
-- Open-Source
+- Open Source
 tags_raw:
 - .NET
 - C#
@@ -51,6 +51,7 @@ tags_raw:
 - Developer Tools
 - Microsoft
 - Open Source
+- Open-Source
 apis:
 - aid: microsoft-net:dotnet-api
   name: Microsoft .NET API Browser
@@ -210,8 +211,6 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/dotnet/api/
   baseURL: https://learn.microsoft.com/en-us/dotnet/api/
   tags:
-  - ServiceIndex
-  tags_raw:
   - Service Index
   properties:
   - type: OpenAPI
