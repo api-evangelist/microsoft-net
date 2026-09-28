@@ -107,13 +107,21 @@ servers:
 tools_count: 3
 tools:
 - name: microsoft_docs_search
-  description: ''
+  description: Search official Microsoft/Azure documentation to find the most relevant and trustworthy
+    content for a user's query. This tool returns up to 10 high-quality content chunks (each max 500 tokens),
+    extracted from Microsoft Learn and other offic
 - name: microsoft_code_sample_search
-  description: ''
+  description: Search for code snippets and examples in official Microsoft Learn documentation. This tool
+    retrieves relevant code samples from Microsoft documentation pages providing developers with practical
+    implementation examples and best practices for
 - name: microsoft_docs_fetch
-  description: ''
+  description: 'Fetch and convert a Microsoft Learn documentation webpage to markdown format. This tool
+    retrieves the latest complete content of Microsoft documentation webpages including Azure, .NET, Microsoft
+    365, and other Microsoft technologies.  ## Wh'
 tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
 authorship: platform
 authorship_note: 'PLATFORM-AUTHORED: this tool shape is shared with at least one other provider in the
   catalog, so it is a platform default appearing under this provider''s domain rather than an interface
   this provider designed. Shared shape: (''microsoft_code_sample_*'', ''microsoft_docs_*'', ''microsoft_docs_fetch'')'
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
