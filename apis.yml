@@ -367,3 +367,14 @@ x-enrichment:
   pass: local-v1
 x-parent: microsoft
 x-relationship: product
+x-correction-request:
+  requested: '2026-09-28'
+  source:
+  - https://github.com/api-evangelist/microsoft-net/pull/1
+  request: 'Verified 2026-09-28 by a fresh initialize + tools/list against https://learn.microsoft.com/api/mcp
+    (serverInfo Microsoft Learn MCP Server 1.0.0, Microsoft-operated, anonymous): all 3 tools (microsoft_docs_search,
+    microsoft_code_sample_search, microsoft_docs_fetch) carry multi-paragraph descriptions, but mcp/microsoft-net-mcp.yml
+    records description '''' for all three. Re-probe tools/list and carry the live descriptions into the
+    manifest verbatim; the PR''s text matches live exactly, but take it from the probe. Keep authorship:
+    platform — this is the Microsoft Learn server shared across Microsoft product profiles, not a .NET-specific
+    server. The PR is a LintLang (Hermes Labs) automated contribution with no affiliation to Microsoft.'
