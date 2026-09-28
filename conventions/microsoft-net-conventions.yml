@@ -79,6 +79,7 @@ rate_limit_signaling:
     string rather than read from a header. This is a real agent-readiness gap.
   detail: rate-limits/microsoft-net-rate-limits.yml
 idempotency:
+  coverage: none
   key_header: null
   key_param: null
   supported: false

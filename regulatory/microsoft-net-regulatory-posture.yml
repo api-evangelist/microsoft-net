@@ -1,0 +1,18 @@
+generated: '2026-09-28'
+source: https://www.microsoft.com/en-us/privacy/privacystatement
+method: probed
+signals:
+  data_subject_request:
+    - source: https://www.microsoft.com/en-us/privacy/privacystatement
+      http_status: 200
+      fetched: true
+      quote: "How to access and control your personal data"
+      section: "How to access and control your personal data"
+      note: Allows users to request access to their personal data.
+  incident_notification:
+    - source: https://www.microsoft.com/en-us/privacy/privacystatement
+      http_status: 200
+      fetched: true
+      quote: "We may also disclose personal data as part of corporate transactions such as mergers or asset sales."
+      section: "Other disclosures"
+      note: Mentions disclosure in incidents like corporate transactions, but no explicit incident notification policy.

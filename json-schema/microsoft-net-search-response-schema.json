@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-net/main/json-schema/microsoft-net-search-response-schema.json",
+  "title": "SearchResponse",
+  "x-generated": "2026-09-28",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/microsoft-net-search-api-openapi.yml#/components/schemas/SearchResponse",
+  "type": "object",
+  "properties": {
+    "totalHits": {
+      "type": "integer"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SearchResult"
+      }
+    }
+  },
+  "$defs": {
+    "SearchResult": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "authors": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "iconUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "licenseUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "projectUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "registration": {
+          "type": "string",
+          "format": "uri"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "totalDownloads": {
+          "type": "integer"
+        },
+        "verified": {
+          "type": "boolean"
+        },
+        "versions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              },
+              "version": {
+                "type": "string"
+              },
+              "downloads": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

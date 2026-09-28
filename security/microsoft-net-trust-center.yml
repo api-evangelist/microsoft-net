@@ -1,5 +1,6 @@
 generated: '2026-08-29'
 method: searched
+source: https://www.microsoft.com/en-us/trust-center
 probe: true
 url: https://www.microsoft.com/en-us/trust-center
 certifications:

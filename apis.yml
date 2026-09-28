@@ -1,7 +1,13 @@
 aid: microsoft-net
+
 name: Microsoft .NET
-description: Microsoft .NET is a free, cross-platform, open source developer platform for building many different types of applications. The .NET APIs and developer tools provide programmatic access to .NET runtime services, NuGet package management, project templates, and build tooling across web, mobile, desktop, games, IoT, cloud, and microservices workloads.
+
+description: Microsoft .NET is a free, cross-platform, open source developer platform for building many different types of applications. The .NET
+  APIs and developer tools provide programmatic access to .NET runtime services, NuGet package management, project templates, and build tooling
+  across web, mobile, desktop, games, IoT, cloud, and microservices workloads.
+
 type: Index
+
 deliveryModel:
   model: saas
   open_source: false
@@ -14,6 +20,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: paid
   onboarding: unknown
@@ -30,11 +37,17 @@ accessModel:
   - sandbox
   generated: '2026-09-03'
   method: derived
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-net.png
+
 url: https://dotnet.microsoft.com/
+
 created: '2024-01-01'
+
 modified: '2026-08-29'
+
 specificationVersion: '0.23'
+
 tags:
 - .NET
 - C#
@@ -43,6 +56,7 @@ tags:
 - Developer Tools
 - Microsoft
 - Open Source
+
 tags_raw:
 - .NET
 - C#
@@ -52,170 +66,23 @@ tags_raw:
 - Microsoft
 - Open Source
 - Open-Source
-apis:
-- aid: microsoft-net:dotnet-api
-  name: Microsoft .NET API Browser
-  description: >-
-    Comprehensive reference for .NET APIs across all packages, namespaces, and types in the .NET ecosystem
-    including .NET 9, .NET Standard, and .NET Framework.
-  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
-  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
-  tags:
-  - API Browser
-  - Class Library
-  - Reference
-  properties:
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/dotnet/api/
-  - type: APIReference
-    url: https://learn.microsoft.com/en-us/dotnet/api/
-- aid: microsoft-net:nuget-api
-  name: NuGet Server API
-  description: >-
-    RESTful API for interacting with nuget.org and private NuGet feeds, supporting package search, download,
-    push, delete, and metadata queries for .NET package management.
-  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
-  baseURL: https://api.nuget.org/v3/
-  tags:
-  - NuGet
-  - Package Management
-  - Package Registry
-  - REST
-  properties:
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/nuget/api/overview
-  - type: APIReference
-    url: https://learn.microsoft.com/en-us/nuget/api/overview
-  - type: GettingStarted
-    url: >-
-      https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio
-- aid: microsoft-net:dotnet-cli
-  name: .NET CLI
-  description: >-
-    Cross-platform command-line interface for developing, building, running, and publishing .NET applications.
-    Provides commands for project creation, package management, testing, and deployment.
-  humanURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
-  baseURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
-  tags:
-  - Builds
-  - CLI
-  - Developer Tools
-  - Tooling
-  tags_raw:
-  - Build
-  - CLI
-  - Developer Tools
-  - Tooling
-  properties:
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/dotnet/core/tools/
-  - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet
-- aid: microsoft-net:aspnet-core-api
-  name: ASP.NET Core Web API
-  description: >-
-    Framework for building HTTP-based RESTful APIs and web services with ASP.NET Core, including controllers,
-    minimal APIs, routing, model binding, authentication, and OpenAPI integration.
-  humanURL: https://learn.microsoft.com/en-us/aspnet/core/web-api/
-  baseURL: https://learn.microsoft.com/en-us/aspnet/core/
-  tags:
-  - ASP.NET Core
-  - REST
-  - Web API
-  - Web Framework
-  properties:
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/aspnet/core/web-api/
-  - type: Tutorials
-    url: https://learn.microsoft.com/en-us/aspnet/core/tutorials/
-  - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/aspnet/core/getting-started
-- aid: microsoft-net:dotnet-aspire
-  name: .NET Aspire
-  description: >-
-    Cloud-ready stack for building observable, production-ready distributed applications in .NET with
-    built-in service discovery, health checks, telemetry, and configuration management.
-  humanURL: https://learn.microsoft.com/en-us/dotnet/aspire/
-  baseURL: https://learn.microsoft.com/en-us/dotnet/aspire/
-  tags:
-  - Cloud-Native
-  - Distributed Systems
-  - Microservices
-  - Observability
-  tags_raw:
-  - Cloud Native
-  - Distributed Systems
-  - Microservices
-  - Observability
-  properties:
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/dotnet/aspire/
-  - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app
-- aid: microsoft-net:microsoft-net-packagecontent-api
-  name: Microsoft .NET PackageContent API
-  description: The PackageContent API from Microsoft .NET — 3 operation(s) for packagecontent.
-  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
-  baseURL: https://api.nuget.org/v3
-  tags:
-  - PackageContent
-  properties:
-  - type: OpenAPI
-    url: openapi/microsoft-net-packagecontent-api-openapi.yml
-- aid: microsoft-net:microsoft-net-registration-api
-  name: Microsoft .NET Registration API
-  description: The Registration API from Microsoft .NET — 2 operation(s) for registration.
-  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
-  baseURL: https://api.nuget.org/v3
-  tags:
-  - Registration
-  properties:
-  - type: OpenAPI
-    url: openapi/microsoft-net-registration-api-openapi.yml
-- aid: microsoft-net:microsoft-net-search-api
-  name: Microsoft .NET Search API
-  description: The Search API from Microsoft .NET — 1 operation(s) for search.
-  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
-  baseURL: https://api.nuget.org/v3
-  tags:
-  - Search
-  properties:
-  - type: OpenAPI
-    url: openapi/microsoft-net-search-api-openapi.yml
-- name: .NET API Browser
-  description: >-
-    Comprehensive reference documentation for all .NET APIs including the .NET Runtime, base class libraries,
-    ASP.NET Core, Entity Framework, and Azure SDK libraries. Browse types, members, namespaces, and assemblies
-    across supported .NET versions.
-  image: https://www.microsoft.com/favicon.ico
-  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
-  tags:
-  - .NET
-  - API Reference
-  - Framework
-  - Runtime
-  properties:
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/dotnet/api/
-  - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/dotnet/core/introduction
-  - type: GitHubOrganization
-    url: https://github.com/dotnet
-  - type: SDKs
-    url: https://dotnet.microsoft.com/en-us/download
-  - type: ReleaseNotes
-    url: https://learn.microsoft.com/en-us/dotnet/core/releases-and-support
-- aid: microsoft-net:microsoft-net-service-index-api
-  name: Microsoft .NET Service Index API
-  description: The Service Index API from Microsoft .NET — 1 operation(s) for service index.
-  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
-  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
-  tags:
-  - Service Index
-  properties:
-  - type: OpenAPI
-    url: openapi/microsoft-net-service-index-api-openapi.yml
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+  url: https://apievangelist.com
+
 common:
+- type: Spectral
+  url: rules/microsoft-net-rules.yml
+- type: JSONLD
+  url: json-ld/microsoft-net-context.jsonld
+- type: Vocabulary
+  url: vocabulary/microsoft-net-vocabulary.yml
+- type: Hosts
+  url: hosts/microsoft-net-hosts.yml
+- type: Vendors
+  url: vendors/microsoft-net-vendors.yml
 - type: Website
   url: https://dotnet.microsoft.com/
 - type: Packages
@@ -356,25 +223,192 @@ common:
     description: Container support with official .NET Docker images and multi-stage build templates.
   - name: Entity Framework Core
     description: Object-relational mapping for database access with support for SQL Server, PostgreSQL, SQLite, and more.
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-  url: https://apievangelist.com
-x-enrichment:
-  date: '2026-08-29'
-  status: enriched
-  artifacts_added: 26
-  pass: local-v1
+
+apis:
+- aid: microsoft-net:dotnet-api
+  name: Microsoft .NET API Browser
+  description: >-
+    Comprehensive reference for .NET APIs across all packages, namespaces, and types in the .NET ecosystem
+    including .NET 9, .NET Standard, and .NET Framework.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  tags:
+  - API Browser
+  - Class Library
+  - Reference
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/dotnet/api/
+  - type: APIReference
+    url: https://learn.microsoft.com/en-us/dotnet/api/
+- aid: microsoft-net:nuget-api
+  name: NuGet Server API
+  description: >-
+    RESTful API for interacting with nuget.org and private NuGet feeds, supporting package search, download,
+    push, delete, and metadata queries for .NET package management.
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3/
+  tags:
+  - NuGet
+  - Package Management
+  - Package Registry
+  - REST
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/nuget/api/overview
+  - type: APIReference
+    url: https://learn.microsoft.com/en-us/nuget/api/overview
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio
+- aid: microsoft-net:dotnet-cli
+  name: .NET CLI
+  description: >-
+    Cross-platform command-line interface for developing, building, running, and publishing .NET applications.
+    Provides commands for project creation, package management, testing, and deployment.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/core/tools/
+  tags:
+  - Builds
+  - CLI
+  - Developer Tools
+  - Tooling
+  tags_raw:
+  - Build
+  - CLI
+  - Developer Tools
+  - Tooling
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/dotnet/core/tools/
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet
+- aid: microsoft-net:aspnet-core-api
+  name: ASP.NET Core Web API
+  description: >-
+    Framework for building HTTP-based RESTful APIs and web services with ASP.NET Core, including controllers,
+    minimal APIs, routing, model binding, authentication, and OpenAPI integration.
+  humanURL: https://learn.microsoft.com/en-us/aspnet/core/web-api/
+  baseURL: https://learn.microsoft.com/en-us/aspnet/core/
+  tags:
+  - ASP.NET Core
+  - REST
+  - Web API
+  - Web Framework
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/aspnet/core/web-api/
+  - type: Tutorials
+    url: https://learn.microsoft.com/en-us/aspnet/core/tutorials/
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/aspnet/core/getting-started
+- aid: microsoft-net:dotnet-aspire
+  name: .NET Aspire
+  description: >-
+    Cloud-ready stack for building observable, production-ready distributed applications in .NET with
+    built-in service discovery, health checks, telemetry, and configuration management.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/aspire/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/aspire/
+  tags:
+  - Cloud-Native
+  - Distributed Systems
+  - Microservices
+  - Observability
+  tags_raw:
+  - Cloud Native
+  - Distributed Systems
+  - Microservices
+  - Observability
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/dotnet/aspire/
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app
+- aid: microsoft-net:microsoft-net-packagecontent-api
+  name: Microsoft .NET PackageContent API
+  description: The PackageContent API from Microsoft .NET — 3 operation(s) for packagecontent.
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3
+  tags:
+  - PackageContent
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-net-packagecontent-api-openapi.yml
+- aid: microsoft-net:microsoft-net-registration-api
+  name: Microsoft .NET Registration API
+  description: The Registration API from Microsoft .NET — 2 operation(s) for registration.
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3
+  tags:
+  - Registration
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-net-registration-api-openapi.yml
+- aid: microsoft-net:microsoft-net-search-api
+  name: Microsoft .NET Search API
+  description: The Search API from Microsoft .NET — 1 operation(s) for search.
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-net-search-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/microsoft-net-search-response-schema.json
+- name: .NET API Browser
+  description: >-
+    Comprehensive reference documentation for all .NET APIs including the .NET Runtime, base class libraries,
+    ASP.NET Core, Entity Framework, and Azure SDK libraries. Browse types, members, namespaces, and assemblies
+    across supported .NET versions.
+  image: https://www.microsoft.com/favicon.ico
+  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
+  tags:
+  - .NET
+  - API Reference
+  - Framework
+  - Runtime
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/dotnet/api/
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/dotnet/core/introduction
+  - type: GitHubOrganization
+    url: https://github.com/dotnet
+  - type: SDKs
+    url: https://dotnet.microsoft.com/en-us/download
+  - type: ReleaseNotes
+    url: https://learn.microsoft.com/en-us/dotnet/core/releases-and-support
+  aid: microsoft-net:net-api-browser
+- aid: microsoft-net:microsoft-net-service-index-api
+  name: Microsoft .NET Service Index API
+  description: The Service Index API from Microsoft .NET — 1 operation(s) for service index.
+  humanURL: https://learn.microsoft.com/en-us/dotnet/api/
+  baseURL: https://learn.microsoft.com/en-us/dotnet/api/
+  tags:
+  - Service Index
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-net-service-index-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/microsoft-net-service-index-schema.json
 x-parent: microsoft
+
 x-relationship: product
+
 x-correction-request:
   requested: '2026-09-28'
   source:
   - https://github.com/api-evangelist/microsoft-net/pull/1
-  request: 'Verified 2026-09-28 by a fresh initialize + tools/list against https://learn.microsoft.com/api/mcp
-    (serverInfo Microsoft Learn MCP Server 1.0.0, Microsoft-operated, anonymous): all 3 tools (microsoft_docs_search,
-    microsoft_code_sample_search, microsoft_docs_fetch) carry multi-paragraph descriptions, but mcp/microsoft-net-mcp.yml
-    records description '''' for all three. Re-probe tools/list and carry the live descriptions into the
-    manifest verbatim; the PR''s text matches live exactly, but take it from the probe. Keep authorship:
-    platform — this is the Microsoft Learn server shared across Microsoft product profiles, not a .NET-specific
-    server. The PR is a LintLang (Hermes Labs) automated contribution with no affiliation to Microsoft.'
+  request: 'Verified 2026-09-28 by a fresh initialize + tools/list against https://learn.microsoft.com/api/mcp (serverInfo Microsoft Learn MCP
+    Server 1.0.0, Microsoft-operated, anonymous): all 3 tools (microsoft_docs_search, microsoft_code_sample_search, microsoft_docs_fetch) carry
+    multi-paragraph descriptions, but mcp/microsoft-net-mcp.yml records description '''' for all three. Re-probe tools/list and carry the live
+    descriptions into the manifest verbatim; the PR''s text matches live exactly, but take it from the probe. Keep authorship: platform — this
+    is the Microsoft Learn server shared across Microsoft product profiles, not a .NET-specific server. The PR is a LintLang (Hermes Labs) automated
+    contribution with no affiliation to Microsoft.'
+x-enrichment:
+  date: '2026-09-28'
+  status: enriched
+  artifacts_added: 9
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

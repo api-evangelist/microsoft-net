@@ -1,5 +1,5 @@
 ---
-name: Audit .NET dependencies for known vulnerabilities
+name: audit-dotnet-dependencies-for-known-vulnerabilities
 description: Use the NuGet vulnerability feed and the dotnet CLI to find and remediate vulnerable packages, including transitive ones.
 api: openapi/microsoft-net-serviceindex-api-openapi.yml
 operations: [getServiceIndex, getRegistrationIndex, listPackageVersions]

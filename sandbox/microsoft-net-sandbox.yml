@@ -1,4 +1,9 @@
 generated: '2026-08-29'
+
+description: >-
+  NuGet pre‑production integration environment used for testing package pushes without affecting the production gallery.
+
+docs: https://learn.microsoft.com/en-us/nuget/hosting-packages/overview
 method: probed
 source: >-
   https://devblogs.microsoft.com/dotnet/custom-v2-odata-queries-will-be-deprecated-march-9-2021/,

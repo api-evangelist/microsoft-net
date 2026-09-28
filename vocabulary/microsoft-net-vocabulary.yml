@@ -1,0 +1,30 @@
+generated: '2026-09-28'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/microsoft-net-packagecontent-api-openapi.yml
+- openapi/microsoft-net-registration-api-openapi.yml
+- openapi/microsoft-net-search-api-openapi.yml
+- openapi/microsoft-net-service-index-api-openapi.yml
+vocabulary:
+  name: Microsoft .NET Domain Vocabulary
+  description: 'Terms declared by Microsoft .NET''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-09-28'
+  terms:
+  - term: SearchResult
+    definition: 'Object declared by the contract with fields: id, version, description, authors, iconUrl, licenseUrl, projectUrl, registration,
+      summary, tags, title, totalDownloads. (2 more)'
+    tags:
+    - Object
+    source: openapi/microsoft-net-search-api-openapi.yml#/components/schemas/SearchResult
+  - term: SearchResponse
+    definition: 'Object declared by the contract with fields: totalHits, data.'
+    tags:
+    - Object
+    source: openapi/microsoft-net-search-api-openapi.yml#/components/schemas/SearchResponse
+  - term: ServiceIndex
+    definition: 'Object declared by the contract with fields: version, resources.'
+    tags:
+    - Object
+    source: openapi/microsoft-net-service-index-api-openapi.yml#/components/schemas/ServiceIndex

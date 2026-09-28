@@ -1,5 +1,5 @@
 ---
-name: Find and install a NuGet package
+name: find-and-install-nuget-package
 description: Search nuget.org for a package, read its metadata, and resolve the exact version and download URL — using the service index rather than hardcoded hosts.
 api: openapi/microsoft-net-search-api-openapi.yml
 operations: [getServiceIndex, searchPackages, getRegistrationIndex, listPackageVersions]

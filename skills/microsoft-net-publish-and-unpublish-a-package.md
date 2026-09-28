@@ -1,5 +1,5 @@
 ---
-name: Publish and unpublish a NuGet package
+name: publish-and-unpublish-nuget-package
 description: Push a package to nuget.org, and understand what can and cannot be taken back afterwards — including why a push is effectively permanent.
 api: openapi/microsoft-net-serviceindex-api-openapi.yml
 operations: [getServiceIndex]

@@ -1,4 +1,4 @@
-generated: '2026-08-29'
+generated: '2026-09-28'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
@@ -11,13 +11,13 @@ hosts:
 - host: learn.microsoft.com
   https: true
   tls_version: TLSv1.3
-  cert_expires: Dec 11 02:26:09 2026 GMT
+  cert_expires: Apr  8 00:23:13 2027 GMT
   hsts: true
   hsts_max_age: 31536000
 - host: api.nuget.org
   https: true
   tls_version: TLSv1.3
-  cert_expires: Feb 23 03:10:58 2027 GMT
+  cert_expires: Oct 31 21:50:38 2026 GMT
   hsts: null
 domains:
 - domain: microsoft.com

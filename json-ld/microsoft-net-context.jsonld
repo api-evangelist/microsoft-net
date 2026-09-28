@@ -1,0 +1,88 @@
+{
+  "@context": {
+    "@vocab": "https://microsoft.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "microsoft": "https://microsoft.com/schema#",
+    "SearchResult": "microsoft:SearchResult",
+    "id": {
+      "@id": "microsoft:id",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "microsoft:version",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "microsoft:description",
+      "@type": "xsd:string"
+    },
+    "authors": {
+      "@id": "microsoft:authors"
+    },
+    "iconUrl": {
+      "@id": "microsoft:iconUrl",
+      "@type": "@id"
+    },
+    "licenseUrl": {
+      "@id": "microsoft:licenseUrl",
+      "@type": "@id"
+    },
+    "projectUrl": {
+      "@id": "microsoft:projectUrl",
+      "@type": "@id"
+    },
+    "registration": {
+      "@id": "microsoft:registration",
+      "@type": "@id"
+    },
+    "summary": {
+      "@id": "microsoft:summary",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "microsoft:tags"
+    },
+    "title": {
+      "@id": "microsoft:title",
+      "@type": "xsd:string"
+    },
+    "totalDownloads": {
+      "@id": "microsoft:totalDownloads",
+      "@type": "xsd:integer"
+    },
+    "verified": {
+      "@id": "microsoft:verified",
+      "@type": "xsd:boolean"
+    },
+    "versions": {
+      "@id": "microsoft:versions",
+      "@container": "@list"
+    },
+    "SearchResponse": "microsoft:SearchResponse",
+    "totalHits": {
+      "@id": "microsoft:totalHits",
+      "@type": "xsd:integer"
+    },
+    "data": {
+      "@id": "microsoft:data",
+      "@container": "@list"
+    },
+    "ServiceIndex": "microsoft:ServiceIndex",
+    "resources": {
+      "@id": "microsoft:resources",
+      "@container": "@list"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Microsoft .NET API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Microsoft .NET's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-09-28) from openapi/microsoft-net-packagecontent-api-openapi.yml, openapi/microsoft-net-registration-api-openapi.yml, openapi/microsoft-net-search-api-openapi.yml.",
+  "dcterms:created": "2026-09-28",
+  "dcterms:source": [
+    "openapi/microsoft-net-packagecontent-api-openapi.yml",
+    "openapi/microsoft-net-registration-api-openapi.yml",
+    "openapi/microsoft-net-search-api-openapi.yml",
+    "openapi/microsoft-net-service-index-api-openapi.yml"
+  ]
+}
