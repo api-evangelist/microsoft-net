@@ -62,6 +62,15 @@ paths:
                 $ref: '#/components/schemas/SearchResponse'
 components:
   schemas:
+    SearchResponse:
+      type: object
+      properties:
+        totalHits:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
     SearchResult:
       type: object
       properties:
@@ -115,15 +124,6 @@ components:
                 type: string
               downloads:
                 type: integer
-    SearchResponse:
-      type: object
-      properties:
-        totalHits:
-          type: integer
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchResult'
   securitySchemes:
     apiKey:
       type: apiKey
