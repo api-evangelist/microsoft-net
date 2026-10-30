@@ -1,4 +1,4 @@
-# Microsoft .NET (microsoft-net)
+# Microsoft .NET
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,157 +66,176 @@
 
 Microsoft .NET is a free, cross-platform, open source developer platform for building many different types of applications. The .NET APIs and developer tools provide programmatic access to .NET runtime services, NuGet package management, project templates, and build tooling across web, mobile, desktop, games, IoT, cloud, and microservices workloads.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/microsoft-net/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/microsoft-net/refs/heads/main/apis.yml)
+**Areas:** .NET · C# · Cloud · Cross-Platform · Developer Tools · Microsoft · Open Source
 
-## Scope
+## Microsoft .NET on APIs.io
 
-- **Type:** Index
+Everything profiled for Microsoft .NET is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/microsoft-net/](https://apis.io/providers/microsoft-net/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (10)
 
-- .NET
-- C#
-- Cloud
-- Cross-Platform
-- Developer Tools
-- Microsoft
-- Open Source
+- [Microsoft .NET API Browser](https://apis.io/apis/microsoft-net/dotnet-api/) — Comprehensive reference for .NET APIs across all packages, namespaces, and types in the .NET ecosystem including .NET 9, .NET Standard, and .NET Framework.
+- [NuGet Server API](https://apis.io/apis/microsoft-net/nuget-api/) — RESTful API for interacting with nuget.org and private NuGet feeds, supporting package search, download, push, delete, and metadata queries for .NET package…
+- [.NET CLI](https://apis.io/apis/microsoft-net/dotnet-cli/) — Cross-platform command-line interface for developing, building, running, and publishing .NET applications. Provides commands for project creation, package…
+- [ASP.NET Core Web API](https://apis.io/apis/microsoft-net/aspnet-core-api/) — Framework for building HTTP-based RESTful APIs and web services with ASP.NET Core, including controllers, minimal APIs, routing, model binding,…
+- [.NET Aspire](https://apis.io/apis/microsoft-net/dotnet-aspire/) — Cloud-ready stack for building observable, production-ready distributed applications in .NET with built-in service discovery, health checks, telemetry, and…
+- [Microsoft .NET PackageContent API](https://apis.io/apis/microsoft-net/microsoft-net-packagecontent-api/) — The PackageContent API from Microsoft .NET — 3 operation(s) for packagecontent.
+- [Microsoft .NET Registration API](https://apis.io/apis/microsoft-net/microsoft-net-registration-api/) — The Registration API from Microsoft .NET — 2 operation(s) for registration.
+- [Microsoft .NET Search API](https://apis.io/apis/microsoft-net/microsoft-net-search-api/) — The Search API from Microsoft .NET — 1 operation(s) for search.
+- [.NET API Browser](https://apis.io/apis/microsoft-net/net-api-browser/) — Comprehensive reference documentation for all .NET APIs including the .NET Runtime, base class libraries, ASP.NET Core, Entity Framework, and Azure SDK…
+- [Microsoft .NET Service Index API](https://apis.io/apis/microsoft-net/microsoft-net-service-index-api/) — The Service Index API from Microsoft .NET — 1 operation(s) for service index.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-04-18
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Microsoft .NET API Browser
+Model Context Protocol servers that expose the API to agents.
 
-Comprehensive reference for .NET APIs across all packages, namespaces, and types in the .NET ecosystem including .NET 9, .NET Standard, and .NET Framework.
+- [microsoft-net-mcp.yml](https://apis.io/servers/microsoft-net/microsoft-net-mcp-yml/)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/dotnet/api/](https://learn.microsoft.com/en-us/dotnet/api/)
-- **Base URL:** `https://learn.microsoft.com/en-us/dotnet/api/`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- API Browser
-- Class Library
-- Reference
+- [Microsoft Net Agentic Access](https://apis.io/agentic-access/microsoft-net/microsoft-net-agentic-access/)
 
-#### Properties
+#### JSON Schema (2)
 
-- [Documentation](https://learn.microsoft.com/en-us/dotnet/api/)
-- [API Reference](https://learn.microsoft.com/en-us/dotnet/api/)
-- [Postman Collection](collections/microsoft-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The data models the API reads and writes.
 
-### NuGet Server API
+- [SearchResponse](https://apis.io/schemas/microsoft-net/microsoft-net-search-response/)
+- [ServiceIndex](https://apis.io/schemas/microsoft-net/microsoft-net-service-index/)
 
-RESTful API for interacting with nuget.org and private NuGet feeds, supporting package search, download, push, delete, and metadata queries for .NET package management.
+#### JSON-LD (1)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/nuget/api/overview](https://learn.microsoft.com/en-us/nuget/api/overview)
-- **Base URL:** `https://api.nuget.org/v3/`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Microsoft Net Context](https://apis.io/jsonld/microsoft-net/microsoft-net-context/)
 
-- NuGet
-- Package Management
-- Package Registry
-- REST
+#### Collections (5)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://learn.microsoft.com/en-us/nuget/api/overview)
-- [API Reference](https://learn.microsoft.com/en-us/nuget/api/overview)
-- [Getting Started](https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio)
-- [Postman Collection](collections/microsoft-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [NuGet Server API (V3)](https://apis.io/collections/microsoft-net/open-microsoft-net/)
+- [NuGet Server API (V3) PackageContent API](https://apis.io/collections/microsoft-net/open-microsoft-net-packagecontent-api/)
+- [NuGet Server API (V3) PackageContent Registration API](https://apis.io/collections/microsoft-net/open-microsoft-net-registration-api/)
+- [NuGet Server API (V3) PackageContent Search API](https://apis.io/collections/microsoft-net/open-microsoft-net-search-api/)
+- [NuGet Server API (V3) PackageContent ServiceIndex API](https://apis.io/collections/microsoft-net/open-microsoft-net-serviceindex-api/)
 
-### .NET CLI
+#### Overlays (4)
 
-Cross-platform command-line interface for developing, building, running, and publishing .NET applications. Provides commands for project creation, package management, testing, and deployment.
+OpenAPI overlays, including conversational phrasing for each operation.
 
-- **Human URL:** [https://learn.microsoft.com/en-us/dotnet/core/tools/](https://learn.microsoft.com/en-us/dotnet/core/tools/)
-- **Base URL:** `https://learn.microsoft.com/en-us/dotnet/core/tools/`
+- [Microsoft Net Packagecontent Overlay](https://apis.io/overlays/microsoft-net/microsoft-net-packagecontent-overlay/)
+- [Microsoft Net Registration Overlay](https://apis.io/overlays/microsoft-net/microsoft-net-registration-overlay/)
+- [Microsoft Net Search Overlay](https://apis.io/overlays/microsoft-net/microsoft-net-search-overlay/)
+- [Microsoft Net Serviceindex Overlay](https://apis.io/overlays/microsoft-net/microsoft-net-serviceindex-overlay/)
 
-#### Tags
+#### Governance rules (1)
 
-- Build
-- CLI
-- Developer Tools
-- Tooling
+Spectral rulesets for the provider's contracts.
 
-#### Properties
+- [Microsoft .NET API Rules](https://apis.io/rules/microsoft-net/microsoft-net-rules/)
 
-- [Documentation](https://learn.microsoft.com/en-us/dotnet/core/tools/)
-- [Getting Started](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet)
-- [Postman Collection](collections/microsoft-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Security (4)
 
-### ASP.NET Core Web API
+Authentication, trust centre, and vulnerability disclosure.
 
-Framework for building HTTP-based RESTful APIs and web services with ASP.NET Core, including controllers, minimal APIs, routing, model binding, authentication, and OpenAPI integration.
+- [Microsoft Net Authentication](https://apis.io/security/microsoft-net/microsoft-net-authentication/)
+- [Microsoft Net Domain Security](https://apis.io/security/microsoft-net/microsoft-net-domain-security/)
+- [Microsoft Net Trust Center](https://apis.io/security/microsoft-net/microsoft-net-trust-center/)
+- [Microsoft Net Vulnerability Disclosure](https://apis.io/security/microsoft-net/microsoft-net-vulnerability-disclosure/)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/aspnet/core/web-api/](https://learn.microsoft.com/en-us/aspnet/core/web-api/)
-- **Base URL:** `https://learn.microsoft.com/en-us/aspnet/core/`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- ASP.NET Core
-- REST
-- Web API
-- Web Framework
+- [Microsoft Net Plans Pricing](https://apis.io/plans/microsoft-net/microsoft-net-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://learn.microsoft.com/en-us/aspnet/core/web-api/)
-- [Tutorials](https://learn.microsoft.com/en-us/aspnet/core/tutorials/)
-- [Getting Started](https://learn.microsoft.com/en-us/aspnet/core/getting-started)
-- [Postman Collection](collections/microsoft-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published request limits.
 
-### .NET Aspire
+- [Microsoft Net Rate Limits](https://apis.io/rate-limits/microsoft-net/microsoft-net-rate-limits/)
 
-Cloud-ready stack for building observable, production-ready distributed applications in .NET with built-in service discovery, health checks, telemetry, and configuration management.
+#### FinOps (1)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/dotnet/aspire/](https://learn.microsoft.com/en-us/dotnet/aspire/)
-- **Base URL:** `https://learn.microsoft.com/en-us/dotnet/aspire/`
+What the API costs to run, by operation.
 
-#### Tags
+- [Microsoft Net Finops](https://apis.io/finops/microsoft-net/microsoft-net-finops/)
 
-- Cloud Native
-- Distributed Systems
-- Microservices
-- Observability
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://learn.microsoft.com/en-us/dotnet/aspire/)
-- [Getting Started](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app)
-- [Postman Collection](collections/microsoft-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Portal](https://dotnet.microsoft.com/)
+- [Website](https://dotnet.microsoft.com/)
 - [Documentation](https://learn.microsoft.com/en-us/dotnet/)
-- [Getting Started](https://dotnet.microsoft.com/learn)
-- [Blog](https://devblogs.microsoft.com/dotnet/)
-- [GitHub Organization](https://github.com/dotnet)
+- [Getting started](https://dotnet.microsoft.com/learn)
+- [API reference](https://learn.microsoft.com/en-us/dotnet/api/)
+- [Sign up](https://www.nuget.org/users/account/LogOn)
 - [Support](https://dotnet.microsoft.com/platform/support)
-- [Terms of Service](https://www.microsoft.com/en-us/servicesagreement/)
-- [Privacy Policy](https://privacy.microsoft.com/en-us/privacystatement)
-- [YouTube](https://www.youtube.com/dotnet)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/.net)
-- [X (Twitter)](https://twitter.com/dotnet)
 - [Changelog](https://github.com/dotnet/core/blob/main/release-notes/README.md)
-- [SDK](https://dotnet.microsoft.com/download)
-- [Training](https://learn.microsoft.com/en-us/training/dotnet/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Blog](https://devblogs.microsoft.com/dotnet/)
+- [Security](https://www.microsoft.com/en-us/msrc/cvd)
+- [Compliance](https://www.microsoft.com/en-us/trust-center)
+- [Terms of service](https://www.microsoft.com/en-us/servicesagreement/)
+- [Privacy policy](https://privacy.microsoft.com/en-us/privacystatement)
+- [GitHub](https://github.com/dotnet)
+- [Status](https://status.nuget.org/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 66.1** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.3 |
+| Contract quality | 53.2 |
+| Contract governance | 35.6 |
+| Operational transparency | 89.5 |
+| Developer ergonomics | 80.4 |
+| Access clarity | 50.0 |
+
+**Agent readiness 31.8** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/microsoft-net/](https://apis.io/providers/microsoft-net/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Microsoft .NET: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/microsoft-net/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
