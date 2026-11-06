@@ -71,6 +71,12 @@ artifacts:
   hosts/microsoft-net-hosts.yml:
     method: derived
     evidence: declared in the artifact
+  integrations/_index.yml:
+    method: generated
+    evidence: carries an API Evangelist house phrase
+  integrations/microsoft-net-integration-edges.yml:
+    method: unknown
+    evidence: no authorship recorded
   json-ld/microsoft-net-context.jsonld:
     method: unknown
     evidence: no authorship recorded
@@ -190,6 +196,9 @@ artifacts:
     evidence: an API Evangelist overlay (title) over the provider's contract
   packages/microsoft-net-packages.yml:
     method: searched
+    evidence: declared in the artifact
+  patterns/microsoft-net-patterns.yml:
+    method: derived
     evidence: declared in the artifact
   plans/microsoft-net-plans-pricing.yml:
     method: searched
